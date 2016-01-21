@@ -57,6 +57,7 @@ static struct _error_message {
     {CUBRID_ER_INVALID_PARAM, "Invalid parameter"},
     {CUBRID_ER_ROW_INDEX_EXCEEDED, "Row index exceeds the allowed range(1 ~ the number of affected rows)"},
     {CUBRID_ER_EXPORT_NULL_LOB_INVALID, "Exporting NULL LOB is invalid"},
+    {CUBRID_ER_ALLOC_FAILED, "Malloc failed"},
     {0, ""}
 };
 

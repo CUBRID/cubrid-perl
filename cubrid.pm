@@ -41,7 +41,7 @@ use strict;
 
     require_version DBI 1.61;
 
-    $VERSION = '10.0.0.0001';
+    $VERSION = '9.3.0.0001';
 
     bootstrap DBD::cubrid $VERSION;
 
