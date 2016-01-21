@@ -1,0 +1,118 @@
+###start simple_table_info_01.pl 
+Table 1 db_collation 
+Table 2 db_stored_procedure_args 
+Table 3 db_stored_procedure 
+Table 4 db_partition 
+Table 5 db_trig 
+Table 6 db_auth 
+Table 7 db_index_key 
+Table 8 db_index 
+Table 9 db_meth_file 
+Table 10 db_meth_arg_setdomain_elm 
+Table 11 db_meth_arg 
+Table 12 db_method 
+Table 13 db_attr_setdomain_elm 
+Table 14 db_attribute 
+Table 15 db_vclass 
+Table 16 db_direct_super_class 
+Table 17 db_class 
+Table 18 _db_collation 
+Table 19 db_ha_apply_info 
+Table 20 db_serial 
+Table 21 _db_stored_procedure_args 
+Table 22 _db_stored_procedure 
+Table 23 _db_partition 
+Table 24 _db_auth 
+Table 25 _db_data_type 
+Table 26 _db_index_key 
+Table 27 _db_index 
+Table 28 _db_query_spec 
+Table 29 _db_meth_file 
+Table 30 _db_meth_arg 
+Table 31 _db_meth_sig 
+Table 32 _db_method 
+Table 33 _db_domain 
+Table 34 _db_attribute 
+Table 35 _db_class 
+Table 36 db_trigger 
+Table 37 db_authorizations 
+Table 38 db_authorization 
+Table 39 db_password 
+Table 40 db_user 
+Table 41 db_root 
+1..1
+ok 1 - table_info ok
+###start simple_table_info_02.pl 
+###start simple_table_info_03.pl 
+Table 1 db_collation 
+Table 2 db_stored_procedure_args 
+Table 3 db_stored_procedure 
+Table 4 db_partition 
+Table 5 db_trig 
+Table 6 db_auth 
+Table 7 db_index_key 
+Table 8 db_index 
+Table 9 db_meth_file 
+Table 10 db_meth_arg_setdomain_elm 
+Table 11 db_meth_arg 
+Table 12 db_method 
+Table 13 db_attr_setdomain_elm 
+Table 14 db_attribute 
+Table 15 db_vclass 
+Table 16 db_direct_super_class 
+Table 17 db_class 
+Table 18 _db_collation 
+Table 19 db_ha_apply_info 
+Table 20 db_serial 
+Table 21 _db_stored_procedure_args 
+Table 22 _db_stored_procedure 
+Table 23 _db_partition 
+Table 24 _db_auth 
+Table 25 _db_data_type 
+Table 26 _db_index_key 
+Table 27 _db_index 
+Table 28 _db_query_spec 
+Table 29 _db_meth_file 
+Table 30 _db_meth_arg 
+Table 31 _db_meth_sig 
+Table 32 _db_method 
+Table 33 _db_domain 
+Table 34 _db_attribute 
+Table 35 _db_class 
+Table 36 db_trigger 
+Table 37 db_authorizations 
+Table 38 db_authorization 
+Table 39 db_password 
+Table 40 db_user 
+Table 41 db_root 
+Table 42 aaa 
+Table 43 a_tbl 
+Table 44 b_view 
+1..2
+ok 1 - table_info ok
+ok 2 - table_info ok
+###start simple_table_info_04.pl 
+ok 1 - table_info ok
+ok 2 - table_info ok
+ok 3 - table_info ok
+ok 4 - table_info ok
+ok 5 - table_info ok
+
+
+
+ok 6 - table_info ok
+ok 7 - table_info ok
+ok 8 - table_info ok
+ok 9 - table_info ok
+ok 10 - table_info ok
+
+
+
+1..10
+###start simple_table_info_05.pl 
+###start table_info_01.pl 
+table_info-1 : OK
+###start table_info_2.pl 
+table_info-2 : OK
+###start table_info_3.pl 
+table_info-3 : OK

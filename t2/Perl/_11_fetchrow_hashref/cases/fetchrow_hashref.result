@@ -1,0 +1,15 @@
+###start simple_fetchrow_hashref_01.pl 
+1..4
+ok 1 - age ok
+ok 2 - firstName ok
+ok 3 - lastName ok
+ok 4 - income ok
+###start simple_fetchrow_hashref_02.pl 
+1..1
+ok 1 - fetchrow_hashref ok
+###start simple_fetchrow_hashref_03.pl 
+1..4
+ok 1 - age ok
+ok 2 - firstName ok
+ok 3 - lastName ok
+ok 4 - income ok

@@ -1,0 +1,18 @@
+###start simple_primary_key_info_01.pl 
+1..0
+###start simple_primary_key_info_02.pl 
+length: 6
+ok 1 - primary_key_info ok
+ok 2 - primary_key_info ok
+ok 3 - primary_key_info ok
+ok 4 - primary_key_info ok
+ok 5 - primary_key_info ok
+ok 6 - primary_key_info ok
+tb infromationlength: 0
+ok 7 - primary_key_info ok
+ok 8 - primary_key_info ok
+ok 9 - primary_key_info ok
+ok 10 - primary_key_info ok
+ok 11 - primary_key_info ok
+ok 12 - primary_key_info ok
+1..12

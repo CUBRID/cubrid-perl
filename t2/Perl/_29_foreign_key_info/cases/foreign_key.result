@@ -1,0 +1,110 @@
+###start foreign_key_01.pl 
+ok 1 - foreign_key_info ok
+ok 2 - foreign_key_info ok
+ok 3 - foreign_key_info ok
+ok 4 - foreign_key_info ok
+ok 5 - foreign_key_info ok
+ok 6 - foreign_key_info ok
+ok 7 - foreign_key_info ok
+ok 8 - foreign_key_info ok
+ok 9 - foreign_key_info ok
+ok 10 - foreign_key_info ok
+ok 11 - foreign_key_info ok
+ok 12 - foreign_key_info ok
+ok 13 - foreign_key_info ok
+ok 14 - foreign_key_info ok
+1..14
+###start foreign_key_02.pl 
+ok 1 - foreign_key_info ok
+ok 2 - foreign_key_info ok
+ok 3 - foreign_key_info ok
+ok 4 - foreign_key_info ok
+ok 5 - foreign_key_info ok
+ok 6 - foreign_key_info ok
+ok 7 - foreign_key_info ok
+ok 8 - foreign_key_info ok
+ok 9 - foreign_key_info ok
+ok 10 - foreign_key_info ok
+ok 11 - foreign_key_info ok
+ok 12 - foreign_key_info ok
+ok 13 - foreign_key_info ok
+ok 14 - foreign_key_info ok
+1..14
+###start foreign_key_03.pl 
+ok 1 - foreign_key_info ok
+ok 2 - foreign_key_info ok
+ok 3 - foreign_key_info ok
+ok 4 - foreign_key_info ok
+ok 5 - foreign_key_info ok
+ok 6 - foreign_key_info ok
+##########################################
+ok 7 - foreign_key_info ok
+ok 8 - foreign_key_info ok
+ok 9 - foreign_key_info ok
+ok 10 - foreign_key_info ok
+ok 11 - foreign_key_info ok
+ok 12 - foreign_key_info ok
+ok 13 - foreign_key_info ok
+ok 14 - foreign_key_info ok
+ok 15 - foreign_key_info ok
+ok 16 - foreign_key_info ok
+ok 17 - foreign_key_info ok
+1..17
+###start foreign_key_04.pl 
+ok 1 - foreign_key_info ok
+1..1
+###start foreign_key_05.pl 
+ok 1 - foreign_key_info ok
+ok 2 - foreign_key_info ok
+ok 3 - foreign_key_info ok
+ok 4 - foreign_key_info ok
+ok 5 - foreign_key_info ok
+ok 6 - foreign_key_info ok
+ok 7 - foreign_key_info ok
+ok 8 - foreign_key_info ok
+ok 9 - foreign_key_info ok
+ok 10 - foreign_key_info ok
+ok 11 - foreign_key_info ok
+ok 12 - foreign_key_info ok
+ok 13 - foreign_key_info ok
+ok 14 - foreign_key_info ok
+ok 15 - foreign_key_info ok
+ok 16 - foreign_key_info ok
+ok 17 - foreign_key_info ok
+ok 18 - foreign_key_info ok
+ok 19 - foreign_key_info ok
+ok 20 - foreign_key_info ok
+ok 21 - foreign_key_info ok
+ok 22 - foreign_key_info ok
+ok 23 - foreign_key_info ok
+ok 24 - foreign_key_info ok
+1..24
+###start foreign_key_06.pl 
+ok 1 - foreign_key_info ok
+ok 2 - foreign_key_info ok
+ok 3 - foreign_key_info ok
+ok 4 - foreign_key_info ok
+ok 5 - foreign_key_info ok
+ok 6 - foreign_key_info ok
+ok 7 - foreign_key_info ok
+ok 8 - foreign_key_info ok
+ok 9 - foreign_key_info ok
+ok 10 - foreign_key_info ok
+ok 11 - foreign_key_info ok
+ok 12 - foreign_key_info ok
+ok 13 - foreign_key_info ok
+ok 14 - foreign_key_info ok
+ok 15 - foreign_key_info ok
+ok 16 - foreign_key_info ok
+ok 17 - foreign_key_info ok
+ok 18 - foreign_key_info ok
+ok 19 - foreign_key_info ok
+ok 20 - foreign_key_info ok
+ok 21 - foreign_key_info ok
+ok 22 - foreign_key_info ok
+ok 23 - foreign_key_info ok
+ok 24 - foreign_key_info ok
+1..24
+###start foreign_key_07.pl 
+ok 1 - foreign_key_info ok
+1..1

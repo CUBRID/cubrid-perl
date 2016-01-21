@@ -1,0 +1,14 @@
+###start simple_getinfo_01.pl 
+Database connection information 
+
+ok 1 - get_info ok
+ok 2 - get_info ok
+ok 3 - get_info ok
+ok 4 - get_info ok
+ok 5 - get_info ok
+ok 6 - get_info ok
+ok 7 - get_info ok
+ok 8 - get_info ok
+ok 9 - get_info ok
+ok 10 - get_info ok
+1..10

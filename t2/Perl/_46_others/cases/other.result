@@ -1,0 +1,87 @@
+###APIS-56.pl 
+dbi:cubrid:database=enum43;host=10.34.64.212;port=33022
+ok 1 - select prepare
+ok 2 - data right
+ok 3 - data right
+ok 4 - data right
+ok 5 - data right
+1..5
+###APIS-57.pl 
+ok 1 - select prepare
+ok 2 - fetchall_arrayref({}) ok
+ok 3 - fetchall_arrayref({}) ok
+ok 4 - fetchall_arrayref({}) ok
+ok 5 - fetchall_arrayref({}) ok
+ok 6 - fetchall_arrayref({}) ok
+ok 7 - fetchall_arrayref({}) ok
+1..7
+###APIS-60.pl 
+ok 1 - value3 ok
+ok 2 - value ok
+1..2
+###APIS-61.pl 
+Values: 2.1
+ok 1 - ok
+1..1
+###APIS-77.pl 
+1: 1
+ok 1 - error data type
+1..1
+###APIS-56.pl 
+dbi:cubrid:database=other;host=10.34.64.212;port=33022
+ok 1 - select prepare
+ok 2 - data right
+ok 3 - data right
+ok 4 - data right
+ok 5 - data right
+1..5
+###APIS-57.pl 
+ok 1 - select prepare
+ok 2 - fetchall_arrayref({}) ok
+ok 3 - fetchall_arrayref({}) ok
+ok 4 - fetchall_arrayref({}) ok
+ok 5 - fetchall_arrayref({}) ok
+ok 6 - fetchall_arrayref({}) ok
+ok 7 - fetchall_arrayref({}) ok
+1..7
+###APIS-60.pl 
+ok 1 - value3 ok
+ok 2 - value ok
+1..2
+###APIS-61.pl 
+Values: 2.1
+ok 1 - ok
+1..1
+###APIS-77.pl 
+1: 1
+ok 1 - error data type
+1..1
+###APIS-56.pl 
+dbi:cubrid:database=other;host=10.34.64.212;port=33022
+ok 1 - select prepare
+ok 2 - data right
+ok 3 - data right
+ok 4 - data right
+ok 5 - data right
+1..5
+###APIS-57.pl 
+ok 1 - select prepare
+ok 2 - fetchall_arrayref({}) ok
+ok 3 - fetchall_arrayref({}) ok
+ok 4 - fetchall_arrayref({}) ok
+ok 5 - fetchall_arrayref({}) ok
+ok 6 - fetchall_arrayref({}) ok
+ok 7 - fetchall_arrayref({}) ok
+1..7
+###APIS-60.pl 
+ok 1 - value3 ok
+ok 2 - value ok
+1..2
+###APIS-61.pl 
+Values: 2.1
+ok 1 - ok
+1..1
+###APIS-77.pl 
+1: 1
+ok 1 - error data type
+1..1

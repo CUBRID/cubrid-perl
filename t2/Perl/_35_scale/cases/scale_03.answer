@@ -1,0 +1,49 @@
+Number of field is 8
+name: col4
+type: 5
+precision: 8
+scale: 0
+
+
+name: col10
+type: 11
+precision: 7
+scale: 0
+
+
+name: col11
+type: 12
+precision: 15
+scale: 0
+
+
+name: col12
+type: 13
+precision: 10
+scale: 0
+
+
+name: col13
+type: 14
+precision: 8
+scale: 0
+
+
+name: col14
+type: 15
+precision: 19
+scale: 0
+
+
+name: col15
+type: 32
+precision: 19
+scale: 0
+
+
+name: col18
+type: 23
+precision: 0
+scale: 0
+
+

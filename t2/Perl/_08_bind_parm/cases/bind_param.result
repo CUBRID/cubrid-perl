@@ -1,0 +1,111 @@
+###start simple_bind_param_01.pl 
+ok 1 - bind_param ok
+ok 2 - execute ok
+ok 3 - bind_param ok
+ok 4 - bind_param ok
+1..4
+###start simple_bind_param_02.pl 
+ok 1 - bind_param ok
+ok 2 - execute ok
+ok 3 - execute ok
+ok 4 - bind_param ok
+ok 5 - bind_param ok
+1..5
+###start simple_bind_param_03.pl 
+ok 1 - bind_param ok
+ok 2 - bind_param ok
+ok 3 - bind_param ok
+1..3
+###start simple_bind_param_04.pl 
+ok 1 - bind_param ok
+ok 2 - execute ok
+ok 3 - finish ok
+ok 4 - rollback ok
+1..4
+###start simple_bind_param_05.pl 
+ok 1 - bind_param ok
+ok 2 - execute ok
+ok 3 - finish ok
+ok 4 - rollback ok
+1..4
+###start simple_bind_param_06.pl 
+ok 1 - bind_param ok
+ok 2 - bind_param ok
+ok 3 - bind_param ok
+ok 4 - finish ok
+ok 5 - rollback ok
+1..5
+###start simple_bind_param_07.pl 
+rs: 1
+ok 1 - finish ok
+ok 2 - rollback ok
+1..2
+###start simple_bind_param_08.pl 
+ok 1 - bind_col ok
+ok 2 - bind_col ok
+1 by Johny                
+2 by lisi                 
+3 by wangwu               
+4 by mazi                 
+1..2
+###start bind_param_1.pl 
+ok 1 - bind error parameter
+1..1
+###start bind_param_2.pl 
+ok 1 - bind 1 ok
+ok 2 - bind 2 ok
+1..2
+###start bind_param_3.pl 
+ok 1 - bind 1 ok
+ok 2 - bind 2 ok
+1..2
+###start bind_param_4.pl 
+bdRs: 1	  1
+ok 1 - bind 1 ok
+ok 2 - bind 2 ok
+1..2
+###start bind_param_5.pl 
+bdRs: 1	  1
+ok 1 - bind 1 ok
+ok 2 - bind 2 ok
+1..2
+###start bind_param_6.pl 
+ok 1 - bind 1 ok
+ok 2 - bind 2 ok
+ok 3 - bind 3 ok
+ok 4 - bind 4 ok
+1..4
+###start bind_param_7.pl 
+###start bind_param_8.pl 
+bdRs: 1 	  1
+ok 1 - bind 1 ok
+ok 2 - bind 2 ok
+ok 3 - execute error
+1..3
+###start bind_param_9.pl 
+bdRs: 1 	  1
+ok 1 - bind 1 ok
+ok 2 - bind 2 ok
+ok 3 - execute error
+1..3
+###start bind_param_10.pl 
+1: 1
+ok 1 - bind 1 ok
+ok 2 - execute error
+1..2
+###start bind_param_11.pl 
+1: 1
+ok 1 - bind 1 ok
+ok 2 - execute error
+1..2
+###start bind_param_12.pl 
+1: 1
+ok 1 - bind 1 ok
+ok 2 - execute error
+1..2
+###start simple_bind_param_inout_01.pl  
+ok 1 - bind_param ok
+ok 2 - execute ok
+ok 3 - bind_param ok
+ok 4 - bind_param ok
+1..4

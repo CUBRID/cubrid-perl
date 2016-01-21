@@ -1,0 +1,84 @@
+###start simple_NUM_OF_FIELDS_01.pl 
+###start simple_NUM_OF_FIELDS_02.pl 
+Number of field is 18
+ok 1 - NUM_OF_FIELDS ok
+ok 2 - NUM_OF_FIELDS ok
+ok 3 - NUM_OF_FIELDS ok
+ok 4 - NUM_OF_FIELDS ok
+ok 5 - NUM_OF_FIELDS ok
+ok 6 - NUM_OF_FIELDS ok
+ok 7 - NUM_OF_FIELDS ok
+ok 8 - NUM_OF_FIELDS ok
+ok 9 - NUM_OF_FIELDS ok
+ok 10 - NUM_OF_FIELDS ok
+ok 11 - NUM_OF_FIELDS ok
+ok 12 - NUM_OF_FIELDS ok
+ok 13 - NUM_OF_FIELDS ok
+ok 14 - NUM_OF_FIELDS ok
+ok 15 - NUM_OF_FIELDS ok
+ok 16 - NUM_OF_FIELDS ok
+ok 17 - NUM_OF_FIELDS ok
+ok 18 - NUM_OF_FIELDS ok
+ok 19 - NUM_OF_FIELDS ok
+ok 20 - NUM_OF_FIELDS ok
+ok 21 - NUM_OF_FIELDS ok
+ok 22 - NUM_OF_FIELDS ok
+ok 23 - NUM_OF_FIELDS ok
+ok 24 - NUM_OF_FIELDS ok
+ok 25 - NUM_OF_FIELDS ok
+ok 26 - NUM_OF_FIELDS ok
+ok 27 - NUM_OF_FIELDS ok
+ok 28 - NUM_OF_FIELDS ok
+ok 29 - NUM_OF_FIELDS ok
+ok 30 - NUM_OF_FIELDS ok
+ok 31 - NUM_OF_FIELDS ok
+ok 32 - NUM_OF_FIELDS ok
+ok 33 - NUM_OF_FIELDS ok
+ok 34 - NUM_OF_FIELDS ok
+ok 35 - NUM_OF_FIELDS ok
+ok 36 - NUM_OF_FIELDS ok
+1..36
+###start simple_NUM_OF_FIELDS_03.pl 
+Number of field is 15
+ok 1 - NUM_OF_FIELDS ok
+ok 2 - NUM_OF_FIELDS ok
+ok 3 - NUM_OF_FIELDS ok
+ok 4 - NUM_OF_FIELDS ok
+ok 5 - NUM_OF_FIELDS ok
+ok 6 - NUM_OF_FIELDS ok
+ok 7 - NUM_OF_FIELDS ok
+ok 8 - NUM_OF_FIELDS ok
+ok 9 - NUM_OF_FIELDS ok
+ok 10 - NUM_OF_FIELDS ok
+ok 11 - NUM_OF_FIELDS ok
+ok 12 - NUM_OF_FIELDS ok
+ok 13 - NUM_OF_FIELDS ok
+ok 14 - NUM_OF_FIELDS ok
+ok 15 - NUM_OF_FIELDS ok
+ok 16 - NUM_OF_FIELDS ok
+ok 17 - NUM_OF_FIELDS ok
+ok 18 - NUM_OF_FIELDS ok
+ok 19 - NUM_OF_FIELDS ok
+ok 20 - NUM_OF_FIELDS ok
+ok 21 - NUM_OF_FIELDS ok
+ok 22 - NUM_OF_FIELDS ok
+ok 23 - NUM_OF_FIELDS ok
+ok 24 - NUM_OF_FIELDS ok
+ok 25 - NUM_OF_FIELDS ok
+ok 26 - NUM_OF_FIELDS ok
+ok 27 - NUM_OF_FIELDS ok
+ok 28 - NUM_OF_FIELDS ok
+ok 29 - NUM_OF_FIELDS ok
+ok 30 - NUM_OF_FIELDS ok
+1..30
+###start simple_NUM_OF_FIELDS_04.pl 
+ok 1 - NUM_OF_FIELDS ok
+ok 2 - NUM_OF_FIELDS ok
+ok 3 - NUM_OF_FIELDS ok
+ok 4 - NUM_OF_FIELDS ok
+1..4
+###start simple_NUM_OF_FIELDS_05.pl 
+ok 1 - NUM_OF_FIELDS ok
+ok 2 - NUM_OF_FIELDS ok
+ok 3 - NUM_OF_FIELDS ok
+1..3

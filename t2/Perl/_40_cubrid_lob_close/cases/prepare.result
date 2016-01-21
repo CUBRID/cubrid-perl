@@ -1,0 +1,62 @@
+###start simple_prepare_01.pl 
+###start simple_prepare_02.pl 
+###start simple_prepare_03.pl 
+###start simple_prepare_04.pl 
+###start simple_prepare_05.pl 
+###start simple_prepare_06.pl 
+###start simple_prepare_07.pl 
+###start simple_prepare_08.pl 
+###start cubrid_lob_close_01.pl
+###start cubrid_lob_close_02.pl
+###start cubrid_lob_import_01.pl
+###start cubrid_lob_close_01.pl
+###start cubrid_lob_close_02.pl
+###start cubrid_lob_import_01.pl
+###start cubrid_lob_close_01.pl
+Value 1:  1
+Value 2:  1
+Value 3:  1
+Value 4:  1
+Value 5:  1
+Value 6:  1
+Value 7:  1
+Value 8:  1
+Value 9:  1
+Value 10:  1
+###start cubrid_lob_close_02.pl
+###start cubrid_lob_import_01.pl
+1..2
+ok 1 - cubrid_lob_import ok
+ok 2 - cubrid_lob_close ok
+###start cubrid_lob_close_01.pl
+Value 1:  1
+Value 2:  1
+Value 3:  1
+Value 4:  1
+Value 5:  1
+Value 6:  1
+Value 7:  1
+Value 8:  1
+Value 9:  1
+Value 10:  1
+###start cubrid_lob_close_02.pl
+###start cubrid_lob_import_01.pl
+1..2
+ok 1 - cubrid_lob_import ok
+ok 2 - cubrid_lob_close ok
+###start cubrid_lob_close_01.pl
+Value 1:  1
+Value 2:  1
+Value 3:  1
+Value 4:  1
+Value 5:  1
+Value 6:  1
+Value 7:  1
+Value 8:  1
+Value 9:  1
+Value 10:  1
+###start cubrid_lob_close_02.pl
+###start cubrid_lob_import_01.pl
+1..2
+ok 1 - cubrid_lob_import ok
+ok 2 - cubrid_lob_close ok

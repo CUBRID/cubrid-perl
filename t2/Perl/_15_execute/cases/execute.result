@@ -1,0 +1,30 @@
+###start simple_execute_01.pl 
+1..6
+ok 1 - value1 ok
+ok 2 - value2 ok
+ok 3 - value3 ok
+ok 4 - value4 ok
+ok 5 - value5 ok
+ok 6 - value6 ok
+###start simple_execute_02.pl 
+1..6
+ok 1 - value1 ok
+ok 2 - value2 ok
+ok 3 - value3 ok
+ok 4 - value4 ok
+ok 5 - value5 ok
+ok 6 - value6 ok
+###start simple_execute_03.pl 
+ok 1 - execute
+ok 2 - finish ok
+ok 3 - execute
+ok 4 - execute ok
+1..4
+###start execute_01.pl 
+ok 1 - the value less than attribute.
+###start execute_02.pl 
+exResult: 1
+ok 1 - insert is ok
+###start execute_03.pl 
+ok 1 - no data
+1..1

@@ -1,0 +1,229 @@
+###start enum_prepare_01.pl 
+1..6
+ok 1 - prepare ok
+ok 2 - prepare of insert succeed
+ok 3 - prepare of insert succeed
+ok 4 - prepare of insert succeed
+ok 5 - prepare of insert succeed
+ok 6 - error data
+###start enum_prepare_02.pl 
+1..3
+ok 1 - prepare ok
+ok 2 - prepare of select succeed
+ok 3 - prepare of select succeed
+###start enum_prepare_03.pl 
+1..3
+ok 1 - prepare ok
+ok 2 - prepare of select succeed
+ok 3 - prepare of select succeed
+###start enum_prepare_04.pl 
+1..5
+ok 1 - prepare ok
+ok 2 - prepare of insert succeed
+ok 3 - prepare of insert succeed
+ok 4 - select * successed
+ok 5 - select cast ok
+###start enum_prepare_05.pl 
+1..6
+ok 1 - prepare ok
+ok 2 - prepare of insert succeed
+ok 3 - prepare of insert succeed
+ok 4 - prepare for delete
+ok 5 - prepare of delete succeed
+ok 6 - After delete the rows is right
+###start enum_prepare_06.pl 
+###start enum_bind_param_01.pl 
+1..13
+ok 1 - 1insert prepare
+ok 2 -  bind_param ok
+ok 3 - bind_param ok
+ok 4 -  execute ok
+ok 5 -  bind_param ok
+ok 6 -  bind_param ok
+ok 7 - execute ok
+ok 8 -  bind_param ok
+ok 9 -  index error
+ok 10 -  execute ok
+ok 11 -  bind error param ok
+ok 12 -  value error
+ok 13 - 10 execute ok
+###start enum_bind_param_02.pl 
+1..27
+ok 1 -  select prepare
+ok 2 -  bind_param ok
+ok 3 -  bind_param ok
+ok 4 -  bind_param ok
+ok 5 -  bind_param ok
+ok 6 -  bind_param ok
+ok 7 -  bind_param ok
+ok 8 - 4 execute ok
+ok 9 -  bind_param ok
+ok 10 -  bind_param ok
+ok 11 -  bind_param ok
+ok 12 -  bind_param ok
+ok 13 - 4 execute ok
+ok 14 - select prepare
+ok 15 - bind_param ok
+ok 16 - bind_param ok
+ok 17 - bind_param ok
+ok 18 - bind_param ok
+ok 19 - bind_param ok
+ok 20 - bind_param ok
+ok 21 - execute ok
+ok 22 - select prepare
+ok 23 - bind_param ok
+ok 24 - bind_param ok
+ok 25 - bind_param ok
+ok 26 - bind_param ok
+ok 27 - execute ok
+###start enum_bind_param_03.pl 
+ok 1 -  select prepare
+ok 2 -  bind_param ok
+ok 3 -  bind_param ok
+ok 4 -  bind_param ok
+ok 5 - execute ok
+ok 6 -  bind_param ok
+ok 7 -  bind_param ok
+ok 8 -  bind_param ok
+ok 9 - execute ok
+ok 10 - select prepare
+ok 11 - bind_param ok
+ok 12 - bind_param ok
+ok 13 - bind_param ok
+ok 14 - execute ok
+ok 15 - error value bind_param ok
+ok 16 - bind_param ok
+ok 17 - bind_param ok
+ok 18 - error value execute
+ok 19 - error value bind_param ok
+ok 20 - bind_param ok
+ok 21 - bind_param ok
+ok 22 - Error value execute
+ok 23 - error index bind_param ok
+ok 24 - bind_param ok
+ok 25 - Bind error index value
+1..25
+###start enum_bind_param_04.pl 
+ok 1 -  select prepare
+ok 2 -  bind_param ok
+ok 3 - execute ok
+ok 4 - Haven't deleted anything
+ok 5 -  bind_param ok
+ok 6 - execute ok
+ok 7 - Deleted successfully
+ok 8 - Error index is ok
+ok 9 - execute ok
+ok 10 - Deleted successfully
+1..10
+###start enum_execute_01.pl 
+ok 1 - Update prepare
+ok 2 - Update prepare
+ok 3 - Update prepare
+ok 4 - Update prepare
+ok 5 - data right
+ok 6 - data right
+ok 7 - data right
+ok 8 - data right
+ok 9 - data right
+ok 10 - data right
+ok 11 - data right
+ok 12 - data right
+ok 13 - data right
+ok 14 - data right
+ok 15 - data right
+ok 16 - data right
+1..16
+###start enum_execute_02.pl 
+ok 1 - Update prepare
+ok 2 - Update prepare
+ok 3 - Error code is right
+ok 4 - Update prepare
+ok 5 - Error message is ok
+ok 6 - Update prepare
+ok 7 - Update prepare
+ok 8 - fetchall_arrayref({}) ok
+ok 9 - fetchall_arrayref({}) ok
+ok 10 - fetchall_arrayref({}) ok
+ok 11 - fetchall_arrayref({}) ok
+1..11
+###start enum_execute_03.pl 
+ok 1 - Prepare select is ok
+ok 2 - fetchall_arrayref({}) ok
+ok 3 - fetchall_arrayref({}) ok
+ok 4 - fetchall_arrayref({}) ok
+ok 5 - fetchall_arrayref({}) ok
+ok 6 - fetchall_arrayref({}) ok
+ok 7 - fetchall_arrayref({}) ok
+ok 8 - fetchall_arrayref({}) ok
+ok 9 - fetchall_arrayref({}) ok
+ok 10 - fetchall_arrayref({}) ok
+ok 11 - Prepare select is ok
+ok 12 - fetchall_arrayref({}) ok
+ok 13 - fetchall_arrayref({}) ok
+ok 14 - fetchall_arrayref({}) ok
+ok 15 - fetchall_arrayref({}) ok
+ok 16 - fetchall_arrayref({}) ok
+ok 17 - fetchall_arrayref({}) ok
+ok 18 - Prepare select is ok
+ok 19 - fetchall_arrayref({}) ok
+ok 20 - fetchall_arrayref({}) ok
+ok 21 - fetchall_arrayref({}) ok
+1..21
+###start enum_execute_04.pl 
+ok 1 - Prepare select is ok
+ok 2 - fetchall_arrayref({}) ok
+ok 3 - fetchall_arrayref({}) ok
+ok 4 - fetchall_arrayref({}) ok
+ok 5 - Prepare select is ok
+ok 6 - fetchall_arrayref({}) ok
+ok 7 - fetchall_arrayref({}) ok
+ok 8 - Prepare select is ok
+ok 9 - fetchall_arrayref({}) ok
+1..9
+###start enum_execute_05.pl 
+ok 1 - Prepare select is ok
+ok 2 - has delete one data
+ok 3 - Prepare select is ok
+ok 4 - done't delete date where enum=index
+1..4
+###start enum_column_01.pl 
+ok 1 - column_info ok
+ok 2 - column_info ok
+ok 3 - column_info ok
+ok 4 - column_info ok
+ok 5 - column_info ok
+ok 6 - column_info ok
+1..6
+###start enum_column_02.pl 
+ok 1 - column_info ok
+ok 2 - column_info ok
+ok 3 - column_info ok
+ok 4 - column_info ok
+ok 5 - column_info ok
+ok 6 - column_info ok
+ok 7 - column_info ok
+ok 8 - column_info ok
+ok 9 - column_info ok
+1..9
+###enum_delete_01.pl
+ok 1 - Prepare select is ok
+ok 2 - have deleted one records
+ok 3 - haven't change any records
+1..3
+###enum_scale_01.pl
+Number of field is 2
+name: e1
+type: 2
+precision: 0
+scale: 0
+
+
+name: e2
+type: 2
+precision: 0
+scale: 0
+
+
+###testnumber.pl
+ok 1 - prepare ok
+1..1

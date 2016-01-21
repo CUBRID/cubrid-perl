@@ -1,0 +1,31 @@
+Number of field is 5
+name: id
+type: 8
+precision: 10
+scale: 0
+
+
+name: bgi
+type: 21
+precision: 19
+scale: 0
+
+
+name: name
+type: 2
+precision: 1
+scale: 0
+
+
+name: dc
+type: 7
+precision: 5
+scale: 4
+
+
+name: ft
+type: 11
+precision: 7
+scale: 0
+
+

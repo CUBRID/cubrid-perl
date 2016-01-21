@@ -1,0 +1,32 @@
+###start simple_execute_array_01.pl 
+1..1
+ok 1 - execute_array ok
+###start simple_execute_array_02.pl 
+1..1
+ok 1 - execute_array ok
+###start simple_execute_array_03.pl 
+1..1
+ok 1 - execute_array ok
+Found: 0 : Basso
+Found: 1 : Garrett
+Found: 2 : Viktoria
+###start simple_execute_array_04.pl 
+1..1
+ok 1 - execute_array ok
+Found: 14 : 
+Found: 13 : BassoName
+Found: 11 : GarrettNam
+Found: 12 : ViktoriaNa
+###start simple_execute_array_05.pl 
+1..1
+ok 1 - execute_array ok
+###start simple_execute_array_06.pl 
+ok 1 - execute_array ok
+###start simple_execute_array_07.pl 
+rv value is 2
+ok 1 - rollback ok
+1..1
+###start simple_execute_array_08.pl 
+1..1
+ok 1 - execute_array ok
+ Last:	 Depth:bar

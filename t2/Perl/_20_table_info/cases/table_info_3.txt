@@ -1,0 +1,1 @@
+$type must be TABLE, VIEW or 'TABELE','VIEW' at table_info_3.pl line 29

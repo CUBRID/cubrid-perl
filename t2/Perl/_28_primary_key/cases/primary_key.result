@@ -1,0 +1,27 @@
+###start primary_key_04.pl 
+primary1: a
+1: Length1
+
+ok 1 - primary1 is ok
+primary2: a b
+2: Length2
+
+ok 2 - primary2 is ok
+primary3: a
+1: Length3
+
+ok 3 - primary3 is ok
+primary4: a b
+2: Length4
+
+ok 4 - primary4 is ok
+primary5: 
+0: Length5
+
+ok 5 - primary5 is ok
+1..5
+###start primary_key_05.pl 
+ok 1 - primary_key ok
+1..1
+###start primary1.pl 
+primary_key-1 : OK

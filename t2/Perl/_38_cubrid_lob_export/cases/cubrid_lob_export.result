@@ -1,0 +1,12 @@
+###start simple_cubrid_lob_export_01.pl 
+cubrid_lob_export-1 : OK
+cubrid_lob_export-2 : OK
+###start simple_cubrid_lob_export_02.pl 
+cubrid_lob_export-3 : OK
+cubrid_lob_export-4 : OK
+cubrid_lob_export-5 : OK
+cubrid_lob_export-6 : OK
+cubrid_lob_export-7 : OK
+###start simple_cubrid_lob_export_04.pl 
+cubrid_lob_export-8 : OK
+###start export_1.pl 

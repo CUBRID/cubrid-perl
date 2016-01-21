@@ -1,0 +1,34 @@
+###start cubrid_lob_import_01.pl 
+1..2
+ok 1 - cubrid_lob_import ok
+ok 2 - cubrid_lob_close ok
+###start cubrid_lob_import_02.pl 
+1..2
+ok 1 - cubrid_lob_import ok
+ok 2 - cubrid_lob_close ok
+###start cubrid_lob_import_03.pl 
+1..1
+ok 1 - cubrid_lob_import ok
+###start cubrid_lob_import_04.pl  /home/perl/Perl/Perl/_39_cubrid_lob_import/cases
+1..2
+ok 1 - cubrid_lob_import ok
+ok 2 - cubrid_lob_close ok
+###start cubrid_lob_import_05.pl  /home/perl/Perl/Perl/_39_cubrid_lob_import/cases
+1..2
+ok 1 - cubrid_lob_import ok
+ok 2 - cubrid_lob_close ok
+###start import_1.pl  /home/perl/Perl/Perl/_39_cubrid_lob_import/cases
+ok 1 - execute error
+# 
+1..2
+ok 2 - cubrid_lob_import ok
+ok 3 - cubrid_lob_close ok
+###start import_2.pl  /home/perl/Perl/Perl/_39_cubrid_lob_import/cases
+ok 1 - error file ok
+1..1
+###start import_3.pl  /home/perl/Perl/Perl/_39_cubrid_lob_import/cases
+importValue: 1
+ok 1 - cannot import clob to varchar.
+1..1
+###start import_4.pl  /home/perl/Perl/Perl/_39_cubrid_lob_import/cases
+##########################export############

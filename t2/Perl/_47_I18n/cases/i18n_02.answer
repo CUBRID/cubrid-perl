@@ -1,0 +1,5 @@
+####################case1########Number of field is 1
+name: chr(68 using utf8)
+####################case2############Number of field is 1
+name: chr(68 using utf8)|| chr(68-2 using utf8)
+1..0

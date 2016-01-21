@@ -1,0 +1,12 @@
+###start simple_ping_01.pl 
+1..1
+Result of ping() is 1
+ok 1 - ping ok
+###start simple_ping_02.pl 
+1..1
+Result of ping() is 0
+ok 1 - ping ok
+###start simple_ping_03.pl 
+1..1
+Result of ping() is 0
+ok 1 - ping ok

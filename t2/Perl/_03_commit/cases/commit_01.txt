@@ -1,0 +1,153 @@
+class_name: db_collation	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_stored_procedure_args	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_stored_procedure	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_partition	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_trig	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_auth	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_index_key	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_index	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_meth_file	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_meth_arg_setdomain_elm	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_meth_arg	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_method	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_attr_setdomain_elm	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_attribute	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_vclass	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_direct_super_class	owner_name: DBA	class_type: VCLASS
+
+
+class_name: db_class	owner_name: DBA	class_type: VCLASS
+
+
+class_name: _db_collation	owner_name: DBA	class_type: CLASS
+
+
+class_name: db_ha_apply_info	owner_name: DBA	class_type: CLASS
+
+
+class_name: db_serial	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_stored_procedure_args	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_stored_procedure	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_partition	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_auth	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_data_type	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_index_key	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_index	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_query_spec	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_meth_file	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_meth_arg	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_meth_sig	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_method	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_domain	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_attribute	owner_name: DBA	class_type: CLASS
+
+
+class_name: _db_class	owner_name: DBA	class_type: CLASS
+
+
+class_name: db_trigger	owner_name: DBA	class_type: CLASS
+
+
+class_name: db_authorizations	owner_name: DBA	class_type: CLASS
+
+
+class_name: db_authorization	owner_name: DBA	class_type: CLASS
+
+
+class_name: db_password	owner_name: DBA	class_type: CLASS
+
+
+class_name: db_user	owner_name: DBA	class_type: CLASS
+
+
+class_name: db_root	owner_name: DBA	class_type: CLASS
+
+
+class_name: stadium	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: code	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: nation	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: event	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: athlete	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: participant	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: olympic	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: game	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: record	owner_name: PUBLIC	class_type: CLASS
+
+
+class_name: history	owner_name: PUBLIC	class_type: CLASS
+
+

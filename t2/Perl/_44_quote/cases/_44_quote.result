@@ -1,0 +1,106 @@
+###start quote_insert_01.pl 
+arr_sql[0]: insert into t1 values ('single quote('') test');
+arr_sql[1]: insert into t1 values ('new line(
+) test');
+arr_sql[2]: insert into t1 values ('carrage return () test');
+arr_sql[3]: insert into t1 values ('backslash (\) test');
+arr_sql[4]: insert into t1 values ('backslash quote(\'') test');
+ok 1 - fetchall_arrayref({}) ok
+ok 2 - fetchall_arrayref({}) ok
+ok 3 - fetchall_arrayref({}) ok
+ok 4 - fetchall_arrayref({}) ok
+ok 5 - fetchall_arrayref({}) ok
+1..5
+###start quote_insert_02.pl 
+ok 1 - fetchall_arrayref({}) ok
+ok 2 - fetchall_arrayref({}) ok
+ok 3 - fetchall_arrayref({}) ok
+ok 4 - fetchall_arrayref({}) ok
+ok 5 - fetchall_arrayref({}) ok
+ok 6 - fetchall_arrayref({}) ok
+ok 7 - fetchall_arrayref({}) ok
+ok 8 - fetchall_arrayref({}) ok
+ok 9 - fetchall_arrayref({}) ok
+ok 10 - fetchall_arrayref({}) ok
+1..10
+###start quote_update_01.pl 
+Arr_sql:update t1 set a='single quote('') test' where id=1;
+Arr_sql:update t1 set a='new line(
+) test' where id=2;
+Arr_sql:update t1 set a='carrage return () test' where id=3;
+Arr_sql:update t1 set a='backslash (\) test' where id=4;
+Arr_sql:update t1 set a='backslash quote(\'') test' where id=5;
+
+
+ok 1 - 0 fetchall_arrayref({}) ok
+ok 2 - 0 fetchall_arrayref({}) ok
+
+
+ok 3 - 1 fetchall_arrayref({}) ok
+ok 4 - 1 fetchall_arrayref({}) ok
+
+
+ok 5 - 2 fetchall_arrayref({}) ok
+ok 6 - 2 fetchall_arrayref({}) ok
+
+
+ok 7 - 3 fetchall_arrayref({}) ok
+ok 8 - 3 fetchall_arrayref({}) ok
+
+
+ok 9 - 4 fetchall_arrayref({}) ok
+ok 10 - 4 fetchall_arrayref({}) ok
+1..10
+###start quote_delete_01.pl 
+ok 1 - has delete all data
+1..1
+###start quote_prepare_01.pl 
+ok 1 - prepare ok
+ok 2 - prepare of select succeed
+ok 3 - prepare of select succeed
+ok 4 - prepare of select succeed
+ok 5 - prepare of select succeed
+ok 6 - prepare of select succeed
+ok 7 - fetchall_arrayref({}) ok
+ok 8 - fetchall_arrayref({}) ok
+ok 9 - fetchall_arrayref({}) ok
+ok 10 - fetchall_arrayref({}) ok
+ok 11 - fetchall_arrayref({}) ok
+ok 12 - fetchall_arrayref({}) ok
+ok 13 - fetchall_arrayref({}) ok
+ok 14 - fetchall_arrayref({}) ok
+ok 15 - fetchall_arrayref({}) ok
+ok 16 - fetchall_arrayref({}) ok
+1..16
+###start quote_bind_01.pl 
+ok 1 - prepare ok
+ok 2 - bind 1
+ok 3 - bind '
+ok 4 - execute 1
+ok 5 - bind 2
+ok 6 - bind \n
+ok 7 - execute 2
+ok 8 - bind 3
+ok 9 - bind \r
+ok 10 - execute 3
+ok 11 - bind 4
+ok 12 - bind \\
+ok 13 - execute 4
+ok 14 - bind 5
+ok 15 - bind \\'
+ok 16 - execute 5
+ok 17 - fetchall_arrayref({}) ok
+ok 18 - fetchall_arrayref({}) ok
+ok 19 - fetchall_arrayref({}) ok
+ok 20 - fetchall_arrayref({}) ok
+ok 21 - fetchall_arrayref({}) ok
+ok 22 - fetchall_arrayref({}) ok
+ok 23 - fetchall_arrayref({}) ok
+ok 24 - fetchall_arrayref({}) ok
+ok 25 - fetchall_arrayref({}) ok
+ok 26 - fetchall_arrayref({}) ok
+1..26
+###start testrows.pl 
+*****rows=0E0
+ok 1 - has deleted all
+1..1
