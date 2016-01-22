@@ -3,6 +3,15 @@
 use DBI;
 use Test::More;
 use strict;
+use Cwd;
+use File::Basename;
+
+my $cwd;
+if ($0 =~ m{^/}) {
+  $cwd = dirname($0);
+} else {
+  $cwd = dirname(getcwd()."/$0");
+}
 
 use vars qw($db $port $hostname);
 
@@ -20,16 +29,19 @@ $dbh->do("CREATE TABLE import_1 (doc_id VARCHAR(64) PRIMARY KEY, content CLOB);"
 
 my $sth=$dbh->prepare("insert into import_1 values(?,?);") or die "prepare error: $dbh->errstr";
 $sth->bind_param (1, 1) or die "bind_param error: $dbh->errstr";
-my $importValue=$sth->cubrid_lob_import (2, "import1.txt", DBI::SQL_TIME) or die   $dbh->errstr . "  cubrid_lob_import error\n";
+
+=pod
+my $importValue=$sth->cubrid_lob_import (2, $cwd"/import1.txt", DBI::SQL_TIME) or die   $dbh->errstr . "  cubrid_lob_import error\n";
 print "importValue: $importValue\n";
 
 my $err= $dbh->errstr;
-print $err ."\n";
+print "$err\n";
 if($err){
    print "$err\n";
 }else{
    print "no error\n";
 }
+=cut
 
 $sth->execute() or die "execute error: $dbh->errstr";
 

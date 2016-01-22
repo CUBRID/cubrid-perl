@@ -39,16 +39,20 @@ undef,1073741823,12,undef,undef,undef,
 undef,1,12,undef,undef,undef);
 my $sth=$dbh->column_info(undef,undef,'tb','%') or die "column_info error: $dbh->errstr";
 my $dataType;
+
+#http://jira.cubrid.org/browse/APIS-412
+=pod
 while(my $hash_ref=$sth->fetchrow_hashref()){
-   is($hash_ref->{DECIMAL_DIGITS},$values[$i++],"column_info ok");
-   is($hash_ref->{COLUMN_SIZE},$values[$i++],"column_info ok");
-   is($hash_ref->{SQL_DATA_TYPE},$values[$i++],"column_info ok");
-   is($hash_ref->{TABLE_CAT_TYPE},$values[$i++],"column_info ok");
-   is($hash_ref->{TABLE_SCHEM},$values[$i++],"column_info ok");
-   is($hash_ref->{COLUMN_DEF},$values[$i++],"column_info ok");
+   is($hash_ref->{DECIMAL_DIGITS},$values[$i++],"decimal digits $i compare");
+   is($hash_ref->{COLUMN_SIZE},$values[$i++],"column size $i compare");
+   is($hash_ref->{SQL_DATA_TYPE},$values[$i++],"sql data type $i compare");
+   is($hash_ref->{TABLE_CAT_TYPE},$values[$i++],"table cat type $i compare");
+   is($hash_ref->{TABLE_SCHEM},$values[$i++],"table schem $i compare");
+   is($hash_ref->{COLUMN_DEF},$values[$i++],"column def $i compare");
 
 }
 done_testing();
+=cut
 
 $sth->finish();
 $dbh->disconnect();

@@ -37,14 +37,17 @@ my @values=(1,"CHAR(1)","c",
 my $i=0;
 my $sth=$dbh->column_info(undef,undef,'tdb','%') or die "column_info error: $dbh->errstr";
 my $dataType;
+
+#http://jira.cubrid.org/browse/APIS-412
+=pod
 while(my $hash_ref=$sth->fetchrow_hashref()){
-   is($hash_ref->{DATA_TYPE},$values[$i++],"column_info ok");
-   is($hash_ref->{TYPE_NAME},$values[$i++],"column_info ok");
-   is($hash_ref->{COLUMN_NAME},$values[$i++],"column_info ok");
+   is($hash_ref->{DATA_TYPE},$values[$i++],"data type $i compare");
+   is($hash_ref->{TYPE_NAME},$values[$i++],"type name $i compare");
+   is($hash_ref->{COLUMN_NAME},$values[$i++],"column name $i compare");
 }
 
 done_testing();
-
+=cut
 
 
 

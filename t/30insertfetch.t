@@ -41,5 +41,3 @@ ok($sth->finish());
 ok($dbh->do("DROP TABLE $table"),"Dropping table");
 
 $dbh->disconnect();
-#error
-$sth->fetchrow_arrayref()

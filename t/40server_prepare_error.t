@@ -12,7 +12,7 @@ require 'lib.pl';
 
 use vars qw($test_dsn $test_user $test_passwd);
 
-$test_dsn .= ";mysql_server_prepare=1";
+$test_dsn.= ";mysql_server_prepare=1";
 my $dbh;
 eval {$dbh = DBI->connect($test_dsn, $test_user, $test_passwd,
   { RaiseError => 1, AutoCommit => 1})};
@@ -21,7 +21,7 @@ if ($@) {
     plan skip_all => "ERROR: $@. Can't continue test";
 }
 
-plan tests => 3;
+plan tests => 4;
 
 # execute invalid SQL to make sure we get an error
 my $q = "select select select";	# invalid SQL
@@ -33,10 +33,6 @@ $dbh->{PrintError} = 1;
 $dbh->{PrintWarn} = 1;
 ok defined($DBI::errstr);
 cmp_ok $DBI::errstr, 'ne', '';
+cmp_ok $DBI::errstr,  'eq', 'CUBRID DBMS Error : (-493) Syntax: syntax error, unexpected SELECT ';
 
-if ($DBI::errstr) {
-    my $errstr = $DBI::errstr;
-    $errstr =~ s/\n/  /g;
-    print "Excepted msg -- [$errstr]\n";
-}
 ok $dbh->disconnect();

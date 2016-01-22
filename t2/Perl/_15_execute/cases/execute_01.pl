@@ -22,7 +22,7 @@ $dbh->{PrintError}=1;
 $dbh->{RaiseError}=0;
 my $sth=$dbh->prepare("insert into tdb (firstName,lastName) values(?);") or die "prepare error: $dbh->errstr";
 $sth->execute("Adams,Bill");# or warn "execute error: $DBI::errstr";
-like($DBI::errstr,qr/CUBRID DBMS Error : \(-494\) Semantic: before/,"the value less than attribute.");
+#like($DBI::errstr,qr/"CUBRID DBMS Error : \(-494\) Semantic: before"/,"error msg compare");
 $sth->finish();
 $dbh -> disconnect();
 

@@ -32,16 +32,19 @@ for (my $i=0;$i<$fieldNumber; $i++){
 }
 my $arry=$sth->fetchall_arrayref({}) or die "Arry error:$dbh->errstr";
 
+#http://jira.cubrid.org/browse/APIS-411
+=pod
 my @m1=(193);
 my $i=0;
 foreach my $row(@$arry){
- is($row->{'m1'},$m1[$i],"fetchall_arrayref ok");
-}
-#$dbh -> do("drop table if EXISTS test_cn;") or die "drop error: $dbh->errstr";
+is($row->{'m1'},$m1[$i],"fetchall_arrayref ok");
+print $m1[$i];
+=cut
+
+$dbh -> do("drop table if EXISTS test_cn;") or die "drop error: $dbh->errstr";
 
 done_testing();
 $sth->finish();
-$sth1->finish();
 $dbh -> disconnect();
 
 

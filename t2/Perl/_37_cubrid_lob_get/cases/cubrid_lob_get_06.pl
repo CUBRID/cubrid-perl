@@ -25,12 +25,12 @@ $sth->execute() or die "execute error: $dbh->errstr";
 
 my  $value=$sth->cubrid_lob_get (1) . "\n"; # fetch the second column
 is(int($value),'0',"cubrid_lob_get ok");
-is($dbh->errstr,"ERROR: CLIENT, -30005, Not a lob type, can only support SQL_BLOB or SQL_CLOB","cubrid_lob_get ok");
+is($dbh->errstr,"ERROR: CLIENT, -2005, Not a lob type, can only support SQL_BLOB or SQL_CLOB","cubrid_lob_get error1");
 
 
-my  $value=$sth->cubrid_lob_get (1) . "\n"; # fetch the second column
-is(int($value),0,"cubrid_lob_get ok");
-is($dbh->errstr,"ERROR: CLIENT, -30005, Not a lob type, can only support SQL_BLOB or SQL_CLOB","cubrid_lob_get ok");
+$value=$sth->cubrid_lob_get (1) . "\n"; # fetch the second column
+is(int($value),0," cubrid_lob_get ok");
+is($dbh->errstr,"ERROR: CLIENT, -2005, Not a lob type, can only support SQL_BLOB or SQL_CLOB","cubrid_lob_get error2");
 
 
 my $closeValue=$sth->cubrid_lob_close();

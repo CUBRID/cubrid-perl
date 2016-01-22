@@ -15,6 +15,8 @@ my $pass="";
 my $dsn="dbi:cubrid:database=$db;host=$hostname;port=$port";
 my $dbh;
 $dbh=DBI->connect($dsn, $user, $pass,{RaiseError => 1}) or die "connect error: $dbh->errstr";
+
+=pod
 $dbh -> do("drop table if EXISTS coo;") or die "drop error: $dbh->errstr";
 $dbh -> do("create table coo(num1 numeric(3,3),num2 numeric(3,0),dec1 decimal(2,2),set1 set(int,float),set2 set(int),enum1 enum('red','yellow','green'),str string,f float(8),f1 float(4),r real,dec2 decimal,dt datetime,seta set);");# or die "create error: $dbh->errstr";
 print $dbh->errstr;
@@ -34,7 +36,7 @@ for (my $i=0;$i<$fieldNumber; $i++){
 }
 
 $sth->finish();
-
+=cut
 
 $dbh -> disconnect();
 

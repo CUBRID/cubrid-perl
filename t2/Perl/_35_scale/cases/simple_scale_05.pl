@@ -15,6 +15,9 @@ my $pass="";
 my $dsn="dbi:cubrid:database=$db;host=$hostname;port=$port";
 my $dbh;
 $dbh=DBI->connect($dsn, $user, $pass,{RaiseError => 1}) or die "connect error: $dbh->errstr";
+
+#cubrid 8.4.4 do not support enum type
+=pod
 $dbh -> do("drop table if EXISTS coo;") or die "drop error: $dbh->errstr";
 $dbh -> do("create table coo(num1 numeric(3,3),set1 set(int,float),set2 set(int),enum1 enum('red','yellow','green'),i int,seta set,setm multiset,seq sequence);");# or die "create error: $dbh->errstr";
 print $dbh->errstr;
@@ -34,9 +37,7 @@ for (my $i=0;$i<$fieldNumber; $i++){
 }
 
 $sth->finish();
-
+=cut
 
 $dbh -> disconnect();
-
-
 
