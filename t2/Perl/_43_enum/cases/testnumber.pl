@@ -24,7 +24,10 @@ my $sth;
 ok($sth=$dbh->prepare("insert into enumb01 values (?,?,?);"),"prepare ok");
 $dbh->{RaiseError}=0;
 $dbh->{PrintError}=1;
-$sth->execute(1,1,1) or warn "Insert error: $DBI::errstr";
+$sth->bind_param(1, 1, DBI::SQL_INTEGER);
+$sth->bind_param(2, 1, DBI::SQL_INTEGER);
+$sth->bind_param(3, 1, DBI::SQL_INTEGER);
+$sth->execute() or warn "Insert error: $DBI::errstr";
 
 
 $dbh->commit or warn "commit error:$DBI::errstr";

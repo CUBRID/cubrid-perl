@@ -3,6 +3,14 @@
 use DBI;
 use Test::More;
 use strict;
+use Cwd;
+use File::Basename;
+my $cwd;
+if ($0 =~ m{^/}) {
+$cwd = dirname($0);
+} else {
+$cwd = dirname(getcwd()."/$0");
+}
 
 use vars qw($db $port $hostname);
 
@@ -27,13 +35,13 @@ $dbh->do("INSERT INTO doc_t (doc_id, content) VALUES ('doc-5', CHAR_TO_CLOB('Thi
 my $sth=$dbh->prepare("select * from doc_t") or die "prepare error: $dbh->errstr";
 $sth->execute() or die "execute error: $dbh->errstr";
 
-
 $sth->cubrid_lob_get (2) or die "cubrid_lob_get error: $dbh->errstr\n";
-$sth->cubrid_lob_close();
 
 my $i=1;
 while($i < 6){
-   $sth->cubrid_lob_export($i,"export_$i.txt") or die "cubrid_lob_export error: $dbh->errstr";
+   #print "\n$i";
+   #print "\n$cwd/export_$i.txt";
+   $sth->cubrid_lob_export($i,"$cwd/export_$i.txt") or die "\ncubrid_lob_export error: $dbh->errstr";
    $i++;
 }
 $sth->cubrid_lob_close();

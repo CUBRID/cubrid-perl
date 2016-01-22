@@ -272,24 +272,22 @@ dbd_db_login6( SV *dbh, imp_dbh_t *imp_dbh,
     int  con, res;
     T_CCI_ERROR error;
 
-    if ((con = cci_connect_with_url_ex (dbname, uid, pwd, &error)) < 0)
-      {
+    if ((con = cci_connect_with_url_ex (dbname, uid, pwd, &error)) < 0) {
         handle_error (dbh, con, &error);
         return FALSE;
-      }
+    }
 
     imp_dbh->handle = con;
 
-    if ((res = cci_end_tran (con, CCI_TRAN_COMMIT, &error)) < 0)
-      {
+    if ((res = cci_end_tran (con, CCI_TRAN_COMMIT, &error)) < 0) {
         handle_error (dbh, res, &error);
         return FALSE;
-      }
+    }
 
     DBIc_IMPSET_on(imp_dbh);
     DBIc_ACTIVE_on(imp_dbh);
 
-    return TRUE;  
+    return TRUE;
 }
 
 /***************************************************************************
@@ -407,22 +405,20 @@ dbd_db_STORE_attrib( SV *dbh, imp_dbh_t *imp_dbh, SV *keysv, SV *valuesv )
 
     switch (kl) {
     case 10:
-        if (strEQ("AutoCommit", key)) 
-        {
-            if (on)
-            {
+        if (strEQ("AutoCommit", key)) {
+            if (on) {
                 cci_set_autocommit (imp_dbh->handle, CCI_AUTOCOMMIT_TRUE);
             }
-            else 
-            {
+            else {
                 cci_set_autocommit (imp_dbh->handle, CCI_AUTOCOMMIT_FALSE);
             }
 
             DBIc_set (imp_dbh, DBIcf_AutoCommit, on);
-            return TRUE;
         }
+        break;
     }
-    return FALSE;
+
+    return TRUE;
 }
 
 /***************************************************************************
@@ -531,19 +527,21 @@ dbd_db_ping( SV *dbh )
 {
     int res;
     T_CCI_ERROR error;
-    char *query = "SELECT 1+1 from db_root /*+ shard_id(0) */";
+    char *query = "SELECT 1+1 from db_root";
     int req_handle = 0, result = 0, ind = 0;
 
     D_imp_dbh (dbh);
 
     if ((res = cci_prepare (imp_dbh->handle, query, 0, &error)) < 0) {
-		goto ER_DB_PING;
+        handle_error (dbh, res, &error);
+        return FALSE;
     }
 
     req_handle = res;
 
     if ((res = cci_execute (req_handle, 0, 0, &error)) < 0) {
-        goto ER_DB_PING;
+        handle_error (dbh, res, &error);
+        return FALSE;
     }
 
     while (1) {
@@ -552,15 +550,18 @@ dbd_db_ping( SV *dbh )
             break;
         }
         if (res < 0) {
-            goto ER_DB_PING;
+            handle_error (dbh, res, &error);
+            return FALSE;
         }
 
         if ((res = cci_fetch (req_handle, &error)) < 0) {
-            goto ER_DB_PING;
+            handle_error (dbh, res, &error);
+            return FALSE;
         }
 
         if ((res = cci_get_data (req_handle, 1, CCI_A_TYPE_INT, &result, &ind)) < 0) {
-            goto ER_DB_PING;
+            handle_error (dbh, res, &error);
+            return FALSE;
         }
 
         if (result == 2) {
@@ -568,9 +569,8 @@ dbd_db_ping( SV *dbh )
             return TRUE;
         }
     }
-	cci_close_req_handle (req_handle);
-ER_DB_PING:
-    handle_error (dbh, res, &error);
+
+    cci_close_req_handle (req_handle);
     return FALSE;
 }
 
@@ -718,11 +718,13 @@ dbd_st_fetch( SV *sth, imp_sth_t *imp_sth )
     if (res == CCI_ER_NO_MORE_DATA) {
         return Nullav;
     } else if (res < 0) {
-        goto ERR_ST_FETCH;
+        handle_error (sth, res, &error);
+        return Nullav;
     }
 
     if ((res = cci_fetch (imp_sth->handle, &error)) < 0) {
-        goto ERR_ST_FETCH;
+        handle_error (sth, res, &error);
+        return Nullav;
     }
 
     av = DBIS->get_fbav(imp_sth);
@@ -731,18 +733,17 @@ dbd_st_fetch( SV *sth, imp_sth_t *imp_sth )
                                   imp_sth->col_count, 
                                   imp_sth->col_info, 
                                   &error)) < 0) {
-        goto ERR_ST_FETCH;
+        handle_error (sth, res, &error);
+        return Nullav;
     }
 
     res = cci_cursor (imp_sth->handle, 1, CCI_CURSOR_CURRENT, &error);
     if (res < 0 && res != CCI_ER_NO_MORE_DATA) {
-        goto ERR_ST_FETCH;
+        handle_error (sth, res, &error);
+        return Nullav;
     }
 
     return av;
-ERR_ST_FETCH:
-    handle_error (sth, res, &error);
-    return Nullav;	  
 }
 
 /***************************************************************************
@@ -935,6 +936,13 @@ int
 dbd_st_blob_read(SV *sth, imp_sth_t *imp_sth,
         int field, long offset, long len, SV *destrv, long destoffset)
 {
+    sth = sth;
+    imp_sth = imp_sth;
+    field = field;
+    offset = offset;
+    len = len;
+    destrv = destrv;
+    destoffset = destoffset;
     return FALSE;
 }
 
@@ -957,100 +965,6 @@ int
 dbd_st_rows( SV * sth, imp_sth_t * imp_sth )
 {
     return imp_sth->affected_rows;
-}
-/***************************************************************************
- *
- * Name:    cubrid_str2bit
- *
- * Purpose: convert string to bit
- *
- **************************************************************************/
-static char* cubrid_str2bit(char* str)
-{
-    int i=0,len=0,t=0;
-    char* buf=NULL;
-    int shift = 8;
-
-    if(str == NULL)
-        return NULL;
-    len = strlen(str);
-
-    if(0 == len%shift)
-        t =1;
-
-    buf = (char*)malloc(len/shift+1+1);
-    memset(buf,0,len/shift+1+1);
-
-    for(i=0;i<len;i++)
-    {
-        if(str[len-i-1] == '1')
-        {
-            buf[len/shift - i/shift-t] |= (1<<(i%shift)); 
-        }
-        else if(str[len-i-1] == '0')
-        {
-        	//nothing
-        }
-        else
-        {
-            return NULL;
-        }
-    }
-    return buf;
-}
-
-/***************************************************************************
- *
- * Name:    _cubrid_dup_buf
- *
- * Purpose: copy data to new buf
- *
- **************************************************************************/
-
-static char* _cubrid_dup_buf(char* src_buf,int size)
-{
-    int len=0;
-    char* temp_buf=NULL;
-
-    if(src_buf != NULL)
-    {
-        len = strlen(src_buf);
-    }
-    else
-    {
-        len =size;
-    }
-    if(len<=0)
-    {
-        return NULL;
-    }
-    temp_buf = (char*)malloc(len+1);
-    if(NULL==temp_buf)
-    {
-      return NULL;
-    }
-    memset(temp_buf,0,len+1);
-    if(NULL!= src_buf)
-        memcpy(temp_buf,src_buf,len);   
-
-    return temp_buf;
-}
-/***************************************************************************
- *
- * Name:    _cubrid_get_data_buf
- *
- * Purpose: alloc buf base cubrid data type
- *
- **************************************************************************/
-static char* _cubrid_get_data_buf(int type,int num,imp_sth_t *imp_sth)
-{
-    switch(type)
-    {
-        case SQL_BIT:  
-           return  _cubrid_dup_buf(NULL,sizeof(T_CCI_BIT)* (num+1));
-        default:
-           return  _cubrid_dup_buf(NULL,sizeof(void*)* (num+1));
-    } 
 }
 
 /***************************************************************************
@@ -1077,87 +991,23 @@ int
 dbd_bind_ph( SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
              IV sql_type, SV *attribs, int is_inout, IV maxlen )
 {
-    int res = 0,i=0,num=0,buffer_is_null;
-    int* indicator= NULL;   
-    char *bind_value = NULL,*temp=NULL;
+    int res = 0;
+    char *bind_value = NULL;
     STRLEN bind_value_len;
     T_CCI_ERROR error;
-    AV* aTemp=NULL;
-    SV** element=NULL;
-    T_CCI_SET set;
-    char** potinter=NULL;  
-    T_CCI_U_TYPE u_type = CCI_U_TYPE_STRING;
-    T_CCI_BIT Bit_Val={NULL};   
+    int buffer_is_null= 0;
+
+    T_CCI_U_TYPE u_type = 0;
 
     int index = SvIV(param);
     if (index < 1 || index > DBIc_NUM_PARAMS(imp_sth)) {
         handle_error (sth, CCI_ER_BIND_INDEX, NULL);
         return FALSE;
-    }  
-    
+    }
+
+    bind_value = SvPV (value, bind_value_len);
+
     buffer_is_null = !(SvOK(newSVsv(value)) && newSVsv(value));
-    if(!buffer_is_null)
-   {
-       if(SvROK(value) && SvTYPE(SvRV(value))==SVt_PVAV)
-       {
-            aTemp = SvRV(value);
-            num = av_len(aTemp);
-
-            potinter = (char**)_cubrid_get_data_buf(sql_type,num+1,imp_sth);
-            indicator  = (int*)_cubrid_dup_buf(NULL,sizeof(int)* (num+1));
-            if(potinter ==NULL || indicator==NULL)
-            {
-                handle_error (sth, CCI_ER_NO_MORE_MEMORY, NULL);
-                return FALSE;                
-            }
-            
-            for(i=0;i<=num;i++)
-            {
-                element = av_fetch(aTemp, i, 0);      
-                temp= SvPV(*element,bind_value_len);
-                if(temp ==NULL)
-                {
-                    handle_error (sth, CCI_ER_NO_MORE_MEMORY, NULL);
-                    return FALSE;                        
-                }
-
-                if(strcmp(temp,"NULL")==0)
-                {
-                    indicator[i]=1;              
-                }
-                else
-                {
-                    indicator[i]=0;
-                    if(SQL_BIT == sql_type)
-                    {
-                        u_type = CCI_U_TYPE_BIT;
-                        temp =  cubrid_str2bit(SvPV(*element,bind_value_len));
-                        if(temp == NULL)
-                        {
-                            handle_error (sth, CCI_ER_TYPE_CONVERSION, NULL);
-                            return FALSE;                             
-                        }
-                        //Bit_Val = ((T_CCI_BIT *) potinter)[i];
-                        ((T_CCI_BIT *) potinter)[i].buf = temp;
-                        ((T_CCI_BIT *) potinter)[i].size = strlen(temp);   
-                    }
-                    else
-                    {
-                        potinter[i]  = temp;
-                    }
-                }    
-            }
-            if(cci_set_make(&set, u_type, num+1, potinter, (int*)indicator)<0)
-            {
-                handle_error (sth, CCI_ER_TYPE_CONVERSION, NULL);
-                return FALSE;    
-            } 
-       }
-       else
-       {
-           bind_value = SvPV (value, bind_value_len);
-       }
-   }
 
     if (SvOK(value) &&
             (sql_type == SQL_NUMERIC  ||
@@ -1206,29 +1056,15 @@ dbd_bind_ph( SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
     case SQL_TINYINT:
         u_type = CCI_U_TYPE_SHORT;
         break;
-    case SQL_ARRAY:
-            u_type = CCI_U_TYPE_SET;
-            break;
 
     default:
         u_type = CCI_U_TYPE_CHAR;
         break;
     }
 
-    if (! buffer_is_null) 
-    {
-        if(SvROK(value) && SvTYPE(SvRV(value))==SVt_PVAV)
-        {
-            res = cci_bind_param (imp_sth->handle, index, CCI_A_TYPE_SET, set, CCI_U_TYPE_SET, 0);            
-            cci_set_free (set);        
-        }
-        else
-        {
-            res = cci_bind_param (imp_sth->handle, index, CCI_A_TYPE_STR, bind_value, u_type, 0);
-        }
-    } 
-    else 
-    {
+    if (! buffer_is_null) {
+        res = cci_bind_param (imp_sth->handle, index, CCI_A_TYPE_STR, bind_value, u_type, 0);
+    } else {
         res = cci_bind_param (imp_sth->handle, index, CCI_A_TYPE_STR, NULL, u_type, 0);
     }
 
@@ -1236,7 +1072,7 @@ dbd_bind_ph( SV *sth, imp_sth_t *imp_sth, SV *param, SV *value,
         handle_error(sth, res, NULL);
         return FALSE;
     }
-    
+
     return TRUE;
 }
 
@@ -1273,12 +1109,6 @@ SV* dbd_db_quote(SV *dbh, SV *str, SV *type)
         char *escaped_string = NULL, *unescaped_string = NULL;
         STRLEN len;
 
-        int i = 0;
-        char *s = NULL;
-        STRLEN escaped_str_len = 0;
-        char db_ver[16] = {'\0'};
-        int major_ver = 0;
-
         D_imp_dbh(dbh);
 
         unescaped_string = SvPV (str, len);
@@ -1296,65 +1126,14 @@ SV* dbd_db_quote(SV *dbh, SV *str, SV *type)
         if ((res = cci_escape_string (imp_dbh->handle, 
                         escaped_string + 1, unescaped_string, len, &error)) < 0)
         {
-            if (res != CAS_ER_PARAM_NAME) {
-
-                free(escaped_string);
-                handle_error(dbh, res, &error);
-                return Nullsv;
-
-            } else {
-
-                res = cci_get_db_version (imp_dbh->handle, db_ver, sizeof (db_ver));
-                if (res < 0) {
-                    handle_error (dbh, res, NULL);
-                    return Nullsv;
-                }
-
-                for (i=0; i< sizeof(db_ver); i++) {
-                    if (db_ver[i] == '.') {
-                        db_ver[i] = '\0';
-                        break;
-                    }
-                }
-
-                major_ver = atoi(db_ver);
-
-                if (major_ver < 9) {
-                    /* CUBRID-8.x not support cci_escape_string, so we do it by ourselves. */
-                    s = escaped_string + 1;
-                    for (i = 0; i < len; i++) {
-                        if (unescaped_string[i] == '\'') {
-                            *s++ = '\'';
-                            *s++ = '\'';
-                            escaped_str_len = escaped_str_len + 2;
-                        } else {
-                            *s++ = unescaped_string[i];
-                            escaped_str_len++;
-                        }
-                    }
-
-                    *s++ = '\'';
-                    *s = '\0';
-                    escaped_str_len = escaped_str_len + 2;
-
-                } else {
-
-                    free(escaped_string);
-                    handle_error(dbh, CAS_ER_PARAM_NAME, &error);
-                    return Nullsv;
-
-                }
-
-            }
-
-        } else {
-
-            escaped_string[1 + res] = '\'';
-            escaped_str_len = res + 2;
-
+            free(escaped_string);
+            handle_error(dbh, res, &error);
+            return Nullsv;
         }
 
-        result = newSVpvn (escaped_string, escaped_str_len);
+        escaped_string[1 + res] = '\'';
+
+        result = newSVpvn (escaped_string, res + 2);
         free (escaped_string);
     }
 

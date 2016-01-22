@@ -13,7 +13,7 @@ if ($@) {
     plan skip_all => "ERROR: $DBI::errstr. Can't continue test";
 }
 
-plan tests => 17;
+plan tests => 18;
 
 ok ($dbh->do("DROP TABLE IF EXISTS $table"));
 
@@ -44,7 +44,7 @@ ok ($sth->bind_param(2, 'Jerry'));
 ok ($sth->bind_param(3, 'cancel'));
 ok ($sth->execute);
 
-#ok !($sth->execute(4, "Joe", 1));
+ok !($sth->execute(4, "Joe", 1));
 
 #ok ($dbh->do("DROP TABLE $table"));
 

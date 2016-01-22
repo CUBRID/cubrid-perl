@@ -30,13 +30,14 @@ ok ($sth->execute(4,$dbh->quote("backslash (\\) test")),"prepare of select succe
 ok ($sth->execute(5,$dbh->quote("backslash quote(\\') test")),"prepare of select succeed");
 
 my $sel_sql="select * from q1";
-my $sth=$dbh->prepare($sel_sql) or warn("create error: $DBI::errstr");
+$sth=$dbh->prepare($sel_sql) or warn("create error: $DBI::errstr");
 $sth->execute() or warn("create error: $DBI::errstr");
 my $arry=$sth->fetchall_arrayref({}) or die "Arry error:$dbh->errstr";
 
 my $i=0;
 my @id=(1,2,3,4,5);
-my @a=(qq(single quote(') test),"new line(\n) test","carrage return (\r) test","backslash (\\) test","backslash quote(\\') test");
+#http://jira.cubrid.org/browse/APIS-468
+my @a=(qq('single quote('') test'),qq('new line(\n) test'),qq('carrage return (\r) test'),qq('backslash (\\) test'),qq('backslash quote(\\'') test'));
 foreach my $row(@$arry){
   is($row->{'id'},$id[$i],"fetchall_arrayref({}) ok");
   is($row->{'a'},$a[$i],"fetchall_arrayref({}) ok");

@@ -27,7 +27,7 @@ print "value: $value\n";
 
 $sth->cubrid_lob_export(1,"null1.txt");
 
-like($dbh->errstr,qr/Invalid lob handle/,"cubrid_lob_export error");
+like($dbh->errstr,qr/Exporting NULL LOB is invalid/,"cubrid_lob_export error");
 
 
 

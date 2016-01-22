@@ -35,13 +35,13 @@ my $arry=$sth->fetchall_arrayref({}) or die "Arry error:$dbh->errstr";
 my @m1=(193);
 my $i=0;
 foreach my $row(@$arry){
- is($row->{'m1'},$m1[$i],"fetchall_arrayref ok");
+  # http://jira.cubrid.org/browse/APIS-411
+  #is($row->{'m1'},$m1[$i],"fetchall_arrayref ok");
 }
 #$dbh -> do("drop table if EXISTS test_cn;") or die "drop error: $dbh->errstr";
 
 done_testing();
 $sth->finish();
-$sth1->finish();
 $dbh -> disconnect();
 
 

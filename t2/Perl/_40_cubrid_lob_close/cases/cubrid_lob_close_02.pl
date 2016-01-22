@@ -3,6 +3,14 @@
 use DBI;
 use Test::More;
 use strict;
+use Cwd;
+use File::Basename;
+my $cwd;
+if ($0 =~ m{^/}) {
+$cwd = dirname($0);
+} else {
+$cwd = dirname(getcwd()."/$0");
+}
 
 use vars qw($db $port $hostname);
 
@@ -26,9 +34,12 @@ $sth->execute() or die "execute error: $dbh->errstr";
 $sth->cubrid_lob_get (2) or die "cubrid_lob_get error: $dbh->errstr\n";
 $sth->cubrid_lob_close();
 
-$sth->cubrid_lob_export(1,"export1.txt") or die "cubrid_lob_export error: $dbh->errstr";
+$sth->cubrid_lob_export(1,"$cwd/export1.txt"); #or die "cubrid_lob_export error: $dbh->errstr";
+#print DBI::errstr."\n";
+like(DBI::errstr, qr/-30002, Cannot fetch data/, "cubrid lob export after cubrid lob close");
 
-#$sth->cubrid_lob_close();
+$sth->cubrid_lob_close();
+done_testing();
 $sth->finish();
 $dbh -> disconnect();
 

@@ -48,6 +48,7 @@ my @values=([1,"CHAR",1073741823,1,-1,"CHAR"],
 [93,"TIMESTAMP",19,9,-1,"TIMESTAMP"],
 [-5,"BIGINT",19,4,-1,"BIGINT"],
 [93,"DATETIME",23,9,-1,"DATETIME"],
+[12,"ENUM",0,12,-1,"ENUM"],
 [30,"BLOB",0,30,-1,"BLOB"],
 [40,"CLOB",0,40,-1,"CLOB"]
 );

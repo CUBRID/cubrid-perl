@@ -31,7 +31,7 @@ my $arry=$sth->fetchall_arrayref({}) or die "Arry error:$dbh->errstr";
 my $i=0;
 my @id=(1,1);
 my @name=('zhangsan            ','Joe                 ');
-my @age=(30,0);
+my @age=(30,undef);
 foreach my $row(@$arry){
  is($row->{'id'},$id[$i],"fetchall_arrayref({}) ok");
  is($row->{'name'},$name[$i],"fetchall_arrayref({}) ok");

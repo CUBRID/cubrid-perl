@@ -29,9 +29,10 @@ $dbh -> do("create table tdb (age int, firstName char(20), lastName char(10), in
 
 
 
-$dbh->do("insert into tdb values (30,'john','poul',13000,'F'),(26,'Bobo','Li',9000,'M'),(33,'Jacky','Wang',16000,'F');") or die  $dbh->err ." insert error\n";
+$dbh->do("insert into tdb values (30,'john','poul',13000,'F'),(26,'Bobo','Li',9000,'M'),(33,'Jacky','Wang',16000,'F');") or die  $dbh->err ."
+ insert error\n";
 
-$dbh->do("insert into tdb values (30,'john','poul',13000,35)") or die  "insert error:  "    . $dbh->errstr  ."\n";
+#$dbh->do("insert into tdb values (30,'john','poul',13000,35)") or die  "insert error:  "    . $dbh->errstr  ."\n";
 
 =head; 
 my $err=$dbh->errstr;
@@ -45,10 +46,3 @@ if($err){
 =cut;
 
 $dbh->disconnect();
-
-
-
-$dbh -> disconnect();
-
-
-

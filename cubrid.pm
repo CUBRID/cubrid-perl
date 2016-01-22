@@ -41,7 +41,7 @@ use strict;
 
     require_version DBI 1.61;
 
-    $VERSION = '10.0.0.0001';
+    $VERSION = '9.1.0.0001';
 
     bootstrap DBD::cubrid $VERSION;
 
@@ -681,6 +681,7 @@ DBD::cubrid - CUBRID driver for the Perl5 Database Interface (DBI)
     use DBI;
 
     $dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port";
+    $dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port;autocommit=$autocommit";
 
     $dbh = DBI->connect ($dsn, $user, $password);
     $sth = $dbh->prepare("SELECT * FROM TABLE");
@@ -751,6 +752,7 @@ consult the B<DBI> documentation first!
     $dsn = "DBI:cubrid:database=$database";
     $dsn = "DBI:cubrid:database=$database;host=$hostname";
     $dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port";
+    $dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port;autocommit=$autocommit"
 
     $dbh = DBI->connect ($dsn, $user, $password);
 
@@ -773,6 +775,10 @@ which failure occurred. After a failure occurs, the system connects to the broke
 specified by althosts (failover), terminates the transaction, and then attempts to
 connect to he active broker of the master database at every rctime. The default value
 is 600 seconds.
+
+B<autocommit> : String. Configures the auto-commit mode. The value maybe true, on, yes,
+false, off and no. You can set autocommit property here or in the C<\%attr> parameter.
+If you set this property at both places, the latter is effective.
 
 B<login_timeout> : INT. Configures the login timeout of CUBRID.
 
@@ -798,11 +804,6 @@ The following are some examples about different $dsn:
 
     $query = 600;
     $dsn = "dbi:cubrid:database=$db;host=$host;port=$port;query_timeout=$query;disconnect_on_query_timeout=yes";
-    
- B<Tips:  the autocommit has been removed from the dsn since RB-8.4.4. If you wanna set up the autocommit of the connection, you have to do:>
-
-    $dbh= DBI->connect ($dsn, $user, $password,
-                      { RaiseError => 1, PrintError => 1, AutoCommit => 0 });
 
 =head1 DBI Database Handle Object
 
@@ -1128,8 +1129,7 @@ Allows the user to bind a value and/or a data type to a placeholder. The value o
 is a number of using the '?' style placeholder. Generally, you can bind params without specifying
 the data type. CUBRID will match it automatically. That means, you don't use C<$bind_type> for
 most data types in CUBRID. But it won't work well with some special data types, such as BLOB and
-CLOB. The following are data types supported by CUBRID.In CUBRID shard envrioment, the $bind_type 
-must be included in the bind_param function.
+CLOB. The following are data types supported by CUBRID.
 
     -----------------------------------------
     | CUBRID        | sql_types             |
@@ -1173,32 +1173,6 @@ Examples of use:
     $sth->bind_param (2, "HELLO WORLD", DBI::SQL_CLOB);
     $sth->execute;
 
-=head3 B<bind_param_array>
-
-Binds an array of values to a placeholder.
-
-    $sth->bind_param_array ($index, $array_ref_or_value);
-    $sth->bind_param_array ($index, $array_ref_or_value, $bind_type);
-    $sth->bind_param_array ($index, $array_ref_or_value, \%attr);
-    $sth->execute_array( \%attrs, @array_of_arrays);
-    
-Examples of use:
-    
-    #!perl -w
-    use DBI;
-    use Test::More;
-    use strict;
- 
-    my $dsn="dbi:cubrid:database=demodb;host=localhost;port=33000";
-    my $dbh=DBI->connect($dsn, "dba", "");
- 
-    $dbh->do("DROP TABLE IF EXISTS test_cubrid");
-    $dbh->do("CREATE TABLE test_cubrid (id VARCHAR)");
- 
-    my $sth = $dbh->prepare ("INSERT INTO test_cubrid VALUES (?)");
-    ok $sth->bind_param_array (1, ['aaa', 'bbb']);
-    ok $sth->execute_array( { ArrayTupleStatus => \my @tuple_status } );
-    
 =head3 B<execute>
 
     $rv = $sth->execute;
@@ -1208,31 +1182,6 @@ Executes a previously prepared statement. In addition to UPDATE, DELETE, INSERT
 statements, for which it returns always the number of affected rows and to SELECT
 statements, it returns the number of rows thart will be returned by the query.
 
-=head3 B<execute_array>  
-  
-Execute a prepared statement once for each item in a passed-in hashref, or items that were 
-previously bound via the "bind_param_array" method. See the DBI documentation for more details.
-
-    $sth->execute_array()
-    $sth->execute_array(\%attr)
-    $sth->execute_array(\%attr, @bind_values)
-   
-Examples of use:
-    
-    use strict;
-    use DBI qw(:sql_types);
-    use Data::Dumper;
-     
-    my $dsn="dbi:cubrid:database=demodb;host=localhost;port=33000";
-    my $dbh=DBI->connect($dsn, "dba", "");
-		 
-    $dbh->do("DROP TABLE IF EXISTS test_cubrid");
-    $dbh->do("CREATE TABLE test_cubrid (id INT)");
-    
-    my $sth = $dbh->prepare ("INSERT INTO test_cubrid VALUES (?)");
-    my @tuple_status;
-    ok $sth->execute_array( { ArrayTupleStatus => \my @tuple_status } , [2,3,4,9]);
-        
 =head3 B<fetchrow_arrayref>
 
     $ary_ref = $sth->fetchrow_arrayref;

@@ -24,9 +24,10 @@ my $bdRs1=$sth->bind_param(1, '10:20:59 sssssss',SQL_TIME) or die "bind_param er
 print  "1: $bdRs1\n";
 is($bdRs1,1,"bind 1 ok");
 
-$sth->execute();# or die "execute error:". $dbh->errstr."\n";
+$sth->execute(); #or die "execute error:". $dbh->errstr."\n";
 like($dbh->errstr,qr/Cannot coerce host var to type time/,"execute error");
-print $dbh->errstr ."\n";
+#print $dbh->errstr ."\n";
 
+done_testing();
 $sth->finish();
 $dbh -> disconnect();

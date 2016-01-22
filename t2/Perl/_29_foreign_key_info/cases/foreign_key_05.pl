@@ -17,17 +17,17 @@ my $dbh;
 $dbh=DBI->connect($dsn, $user, $pass,{RaiseError => 1}) or die "connect error: $dbh->errstr";
 $dbh->do("drop table if EXISTS ssss;") or die $dbh->errstr . "  :drop error\n";
 $dbh->do("drop table if EXISTS aaaa;") or die $dbh->errstr . "  :drop error\n";
-$dbh->do("drop table if EXISTS album;") or die  $dbh->errstr . "  :drop error\n";
+$dbh->do("drop table if EXISTS album_05;") or die  $dbh->errstr . "  :drop error\n";
 
 
-$dbh->do("CREATE TABLE album(id CHAR(10) primary key,title VARCHAR(100), artist VARCHAR(100));") or die $dbh->errstr . " : create error\n";
+$dbh->do("CREATE TABLE album_05(id CHAR(10) primary key,title VARCHAR(100), artist VARCHAR(100));") or die $dbh->errstr . " : create error\n";
 $dbh->do("CREATE TABLE aaaa(aid CHAR(10), uid int primary key);") or die $dbh->errstr . " :create error \n";
 
 
-$dbh->do("CREATE TABLE ssss(album CHAR(10),dsk INTEGER,FOREIGN KEY (album) REFERENCES album(id), FOREIGN KEY (dsk) REFERENCES aaaa(uid));") or die $dbh->errstr . " : create error\n";
+$dbh->do("CREATE TABLE ssss(album_05 CHAR(10),dsk INTEGER,FOREIGN KEY (album_05) REFERENCES album_05(id), FOREIGN KEY (dsk) REFERENCES aaaa(uid));") or die $dbh->errstr . " : create error\n";
 my $sth=$dbh->foreign_key_info('','','','','','ssss') or die $dbh->errstr . "   :foreign_key error\n";
 my @values=("aaaa","uid","","ssss","dsk",1,1,1,"fk_ssss_dsk","pk_aaaa_uid",undef,undef,
-"album","id","","ssss","album",1,1,1,"fk_ssss_album","pk_album_id",undef,undef);
+"album_05","id","","ssss","album_05",1,1,1,"fk_ssss_album_05","pk_album_05_id",undef,undef);
 
 my $j=0;
 
@@ -51,7 +51,7 @@ while(my @row =$sth->fetchrow_array()){
 
 $dbh->do("drop table if EXISTS ssss;") or die $dbh->errstr . "  :drop error\n";
 $dbh->do("drop table if EXISTS aaaa;") or die $dbh->errstr . "  :drop error\n";
-$dbh->do("drop table if EXISTS album;") or die  $dbh->errstr . "  :drop error\n";
+$dbh->do("drop table if EXISTS album_05;") or die  $dbh->errstr . "  :drop error\n";
 done_testing();
 
 $sth->finish();

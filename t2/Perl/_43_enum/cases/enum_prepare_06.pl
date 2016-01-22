@@ -23,12 +23,14 @@ $dbh->do("drop table if EXISTS enum03;") or die "drop error: $dbh->errstr";
 $dbh->do("create table enum03(e1 enum('a', 'b'), e2 enum('Yes', 'No', 'Cancel'),e3 enum ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),e4 enum('x', 'y', 'z'));") or die "create error: $dbh->errstr";
 $dbh -> do("insert into enum03 values(1,1,1,1), (2, 3, 7, 3), ('b', 'No', 'Tuesday', 'y'),('a', 'Yes', 'Friday', 'x'), ('a', 'Cancel', 'Thursday', 'z'),('b', 1, 4, 'z');") or die "insert error:$dbh->errstr";
 
+#http://jira.cubrid.org/browse/APIS-467
+=pod
 plan tests=>3;
-ok (my $sth=$dbh->prepare("prepare x from 'select * from enum03 where e3 < ? and (e1 <> ? or e2 <> ?) order by 1, 2, 3,4'"),"prepare ok");
-ok ($sth->execute("execute x using 6,2,3"), "prepare of select succeed");
-ok ($sth->execute("execute x using 'Sunday', 'a', 'Yes'"), "prepare of select succeed");
-
+ok (my $sth=$dbh->prepare("prepare x from 'select * from enum03 where e3 < ? and (e1 <> ? or e2 <> ?) order by 1, 2, 3,4';"),"prepare ok");
+ok ($sth->execute("execute x using 6,2,3;"), "prepare of select succeed");
+ok ($sth->execute("execute x using 'Sunday', 'a', 'Yes';"), "prepare of select succeed");
 $sth->finish();
+=cut
 
 $dbh->disconnect();
 

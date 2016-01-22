@@ -49,7 +49,6 @@ DBISTATE_DECLARE;
 /* These prototypes are for dbdimp.c funcs used in the XS file          */
 /* These names are #defined to driver specific names in dbdimp.h        */
 
-#define CAS_ER_PARAM_NAME                   -10011
 
 /* CUBRID types */
 

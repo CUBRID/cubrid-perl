@@ -18,7 +18,7 @@ my $abs_path = File::Spec->rel2abs($0);
 my $dbh;
 
 eval {$dbh = DBI->connect($test_dsn, $test_user, $test_passwd,
-        { RaiseError => 0, AutoCommit => 1})};
+        { RaiseError => 1, AutoCommit => 1})};
 
 if ($@) {
     plan skip_all => "ERROR: $DBI::errstr. Can't continue test";
@@ -66,7 +66,7 @@ ok ($sth = $dbh->prepare("SELECT * FROM $table WHERE id = 2"), "prepare to selec
 ok ($sth->execute, "executing 2...");
 
 ok ($sth->cubrid_lob_get(2), 'get lob object 2');
-#ok !($sth->cubrid_lob_export(1, "out2"));
+ok !($sth->cubrid_lob_export(1, "out2"));
 
 
 ok ($sth->cubrid_lob_close, 'close lob object');
@@ -76,5 +76,3 @@ ok ($sth->finish);
 ok $dbh->do("DROP TABLE $table"), "Drop table $table";
 
 ok $dbh->disconnect;
-#error
-$sth->cubrid_lob_export(1, "out2_error")

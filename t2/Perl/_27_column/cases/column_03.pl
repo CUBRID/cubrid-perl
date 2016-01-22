@@ -20,9 +20,9 @@ $dbh -> do("drop table if EXISTS tdb;") or die "drop error: $dbh->errstr";
 $dbh -> do("create table tdb (mn monetary, st SET, ms MULTISET, sq SEQUENCE );") or die "create error: $dbh->errstr";
 
 my @values=(6,"MONETARY","mn",
-12,"","st",
-12,"","ms",
-12,"","sq");
+0,"NULL","st",
+0,"NULL","ms",
+0,"NULL","sq");
 my $sth=$dbh->column_info(undef,undef,'tdb','%') or die "column_info error: $dbh->errstr";
 my $dataType;
 my $i=0;

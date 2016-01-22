@@ -35,6 +35,7 @@ my @values=(["CHAR",1,1073741823,"'","'","length",1,0,3,-1,0,0,"CHAR",-1,-1],
 ["TIMESTAMP",93,19,"TIMESTAMP '","'",undef,1,0,2,0,0,0,"TIMESTAMP",-1,-1],
 ["BIGINT",-5,19,undef,undef,undef,1,0,2,0,0,0,"BIGINT",-1,-1],
 ["DATETIME",93,23,"DATETIME '","'",undef,1,0,2,0,0,0,"DATETIME",-1,-1],
+["ENUM",12,0,undef,undef,undef,1,0,3,0,0,0,"ENUM",-1,-1],
 ["BLOB",30,0,undef,undef,undef,1,0,3,0,0,0,"BLOB",-1,-1],
 ["CLOB",40,0,undef,undef,undef,1,0,3,0,0,0,"CLOB",-1,-1]
 );

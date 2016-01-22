@@ -75,7 +75,6 @@ SV * _cubrid_foreign_key (SV *dbh, char *pk_table, char *fk_table);
 /* These defines avoid name clashes for multiple statically linked DBD's */
 
 #define dbd_init		cubrid_init
-#define dbd_discon_all dbd_discon_all
 #define dbd_db_disconnect	cubrid_db_disconnect
 #define dbd_db_login6		cubrid_db_login6
 #define dbd_db_commit		cubrid_db_commit
