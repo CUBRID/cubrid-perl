@@ -64,7 +64,6 @@ struct imp_sth_st {
         T_CCI_CUBRID_STMT   sql_type;
         T_CCI_COL_INFO      *col_info;
         T_CUBRID_LOB        *lob;
-        int     col_selected;  /* used for lob_get, lob_export */
 };
 
 /* ------ define functions and external variables ------ */
@@ -75,7 +74,6 @@ SV * _cubrid_foreign_key (SV *dbh, char *pk_table, char *fk_table);
 /* These defines avoid name clashes for multiple statically linked DBD's */
 
 #define dbd_init		cubrid_init
-#define dbd_discon_all dbd_discon_all
 #define dbd_db_disconnect	cubrid_db_disconnect
 #define dbd_db_login6		cubrid_db_login6
 #define dbd_db_commit		cubrid_db_commit

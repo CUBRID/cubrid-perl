@@ -87,7 +87,5 @@ is($info->[0]->{FKTABLE_NAME}, "child");
 is($info->[0]->{FKCOLUMN_NAME}, "parent_id");
 
 ok($dbh->do(qq{DROP TABLE IF EXISTS child, parent}), "cleaning up");
+
 $dbh->disconnect();
-#test close with dbh
-#$sth= $dbh->foreign_key_info(undef, undef, undef, undef, undef, 'child');
-#$sth= $dbh->primary_key_info(undef, undef, $table);

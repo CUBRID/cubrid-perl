@@ -24,7 +24,7 @@ my $dbh;
 $dbh=DBI->connect($dsn, $user, $pass,{RaiseError => 1}) or die "connect error: $dbh->errstr";
 
 
-my @values=($version,"pldb","dbi:cubrid:pldb",64,500,"\"",".",1,"CUBRID",$version);
+my @values=($version,"qadb","dbi:cubrid:qadb",64,500,"\"",".",1,"CUBRID",$version);
 my $i=0;
 print "Database connection information \n\n";
 my $database_version=$dbh->get_info($GetInfoType{SQL_DBMS_VER}) or die "get_info(18) error: $dbh->errstr";

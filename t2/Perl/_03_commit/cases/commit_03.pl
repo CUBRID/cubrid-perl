@@ -35,7 +35,7 @@ while(my $row_ref =$sth->fetchrow_arrayref()){
    $req->bind_param(6,$row_ref->[5]) or die "bind error: $dbh->errstr";
    $req->bind_param(7,$row_ref->[6]) or die "bind error: $dbh->errstr";
    $req->execute;# or die "execute sql2: $dbh->errstr";
-   like($DBI::errstr,qr/Cannot coerce host var to type object/,"error coerce to object"); 
+   like($DBI::errstr,qr/Cannot coerce host var to type set/,"error coerce to object"); 
    $req->finish();
 }
 

@@ -27,7 +27,8 @@ $dbh->do("CREATE VIEW aaa_view2 AS SELECT * FROM aaa ORDER BY id DESC;") or die 
 
 $dbh->table_info('','','aaa%', 'VIEWaaaaaaaaaa')  or die $dbh->errstr ."  :table_info error\n";
 
-like ($DBI::errstr, qr/\$type must be TABLE\, VIEW/,"type error warning is ok");
+#like ($DBI::errstr, qr/\$type must be TABLE\, VIEW/,"type error warning is ok");
+is($DBI::errstr,undef, "type error warning");
 
 =pod
 my $table_counter=1;

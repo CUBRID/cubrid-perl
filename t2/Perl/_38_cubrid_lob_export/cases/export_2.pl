@@ -24,22 +24,23 @@ $sth->execute() or die  $dbh->errstr. "  execute error\n";
 
 my  $value=$sth->cubrid_lob_get(3) or die $dbh->errstr ."  lob_get error\n";# fetch the second column
 print "value: $value\n";
+is($value, "1", "cubrid lob get");
 
 my $export=$sth->cubrid_lob_export(3,"null1.txt");# or die $dbh->errstr ."   cubrid_lob_export error\n";
 
 my $err=$dbh->errstr; 
 if($err){
-   print "$err\n";
+#   print "$err\n";
 }else{
-   print "no errror\n";
+#  print "no errror\n";
 }
-
+like($err, qr/CLIENT, -30007, Row index exceeds the allowed range/, "cubrid log export error");
 
 my $closeValue=$sth->cubrid_lob_close();
 print "closeValue: $closeValue\n";
+is($closeValue, "1", "cubrid lob close");
 
-
-
+done_testing();
 $sth->finish();
 $dbh -> disconnect();
 

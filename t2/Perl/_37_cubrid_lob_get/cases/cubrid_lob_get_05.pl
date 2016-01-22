@@ -21,7 +21,7 @@ $dbh->do("CREATE TABLE doc_t (doc_id VARCHAR(64) PRIMARY KEY, content CLOB);") o
 my $sth=$dbh->prepare("select  * from doc_t") or die "prepare error: $dbh->errstr";
 $sth->execute() or die  $dbh->errstr. "  execute error\n";
 
-my  $value=$sth->cubrid_lob_get (1);# fetch the second column
+my  $value=$sth->cubrid_lob_get (2);# fetch the second column
 is($value,1,"cubrid_lob_get ok");
 is($dbh->errstr,undef,"cubrid_lob_get ok");
 
