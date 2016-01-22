@@ -41,7 +41,7 @@ use strict;
 
     require_version DBI 1.61;
 
-    $VERSION = '10.0.0.0001';
+    $VERSION = '9.2.0.0001';
 
     bootstrap DBD::cubrid $VERSION;
 
@@ -681,6 +681,7 @@ DBD::cubrid - CUBRID driver for the Perl5 Database Interface (DBI)
     use DBI;
 
     $dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port";
+    $dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port;autocommit=$autocommit";
 
     $dbh = DBI->connect ($dsn, $user, $password);
     $sth = $dbh->prepare("SELECT * FROM TABLE");
@@ -751,6 +752,7 @@ consult the B<DBI> documentation first!
     $dsn = "DBI:cubrid:database=$database";
     $dsn = "DBI:cubrid:database=$database;host=$hostname";
     $dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port";
+    $dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port;autocommit=$autocommit"
 
     $dbh = DBI->connect ($dsn, $user, $password);
 
@@ -773,6 +775,10 @@ which failure occurred. After a failure occurs, the system connects to the broke
 specified by althosts (failover), terminates the transaction, and then attempts to
 connect to he active broker of the master database at every rctime. The default value
 is 600 seconds.
+
+B<autocommit> : String. Configures the auto-commit mode. The value maybe true, on, yes,
+false, off and no. You can set autocommit property here or in the C<\%attr> parameter.
+If you set this property at both places, the latter is effective.
 
 B<login_timeout> : INT. Configures the login timeout of CUBRID.
 
@@ -798,11 +804,6 @@ The following are some examples about different $dsn:
 
     $query = 600;
     $dsn = "dbi:cubrid:database=$db;host=$host;port=$port;query_timeout=$query;disconnect_on_query_timeout=yes";
-    
- B<Tips:  the autocommit has been removed from the dsn since RB-8.4.4. If you wanna set up the autocommit of the connection, you have to do:>
-
-    $dbh= DBI->connect ($dsn, $user, $password,
-                      { RaiseError => 1, PrintError => 1, AutoCommit => 0 });
 
 =head1 DBI Database Handle Object
 

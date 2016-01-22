@@ -8,8 +8,7 @@ use vars qw($db $port $hostname);
 
 $db="demodb";
 $port=33000;
-#$hostname="localhost";
-$hostname="test-db-server";
+$hostname="localhost";
 my $user="dba";
 my $pass="";
 

@@ -272,24 +272,23 @@ dbd_db_login6( SV *dbh, imp_dbh_t *imp_dbh,
     int  con, res;
     T_CCI_ERROR error;
 
-    if ((con = cci_connect_with_url_ex (dbname, uid, pwd, &error)) < 0)
-      {
-        handle_error (dbh, con, &error);
-        return FALSE;
-      }
+    if ((con = cci_connect_with_url_ex (dbname, uid, pwd, &error)) < 0) {
+        goto ERR_DB_LOGIN;
+    }
 
     imp_dbh->handle = con;
 
-    if ((res = cci_end_tran (con, CCI_TRAN_COMMIT, &error)) < 0)
-      {
-        handle_error (dbh, res, &error);
-        return FALSE;
-      }
+    if ((res = cci_end_tran (con, CCI_TRAN_COMMIT, &error)) < 0) {
+        goto ERR_DB_LOGIN;
+    }
 
     DBIc_IMPSET_on(imp_dbh);
     DBIc_ACTIVE_on(imp_dbh);
 
-    return TRUE;  
+    return TRUE;
+ERR_DB_LOGIN:
+    handle_error (dbh, res, &error);
+    return FALSE;	  
 }
 
 /***************************************************************************
