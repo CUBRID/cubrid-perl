@@ -24,7 +24,8 @@ $dbh->do($statement);
 
 plan tests=>1;
 my $createResult=$dbh->err;
-is($createResult,-20001, "create ok");
+print $createResult;
+is($createResult,-1, "create ok");
 $dbh -> disconnect();
 
 

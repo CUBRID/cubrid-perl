@@ -12,11 +12,11 @@ my $dsn="dbi:cubrid:database=".$db.";host=".$host.";port=".$port;
 #print "$dsn\n";
 my $user="dba";
 my $pass="ass";
-my $dbh=DBI->connect($dsn, $user,$pass,{PrintError=>1, AutoCommit=>0});
+my $dbh=DBI->connect($dsn, $user,$pass,{PrintError=>0, AutoCommit=>0}) or die $DBI::err;
 
 #print $dbh;
 
 is ($dbh,undef, "Connected to database");
-is ($DBI::err,-20001, "check error number");
-like ($DBI::errstr,qr/Incorrect or missing password/,"check error message");
+is ($DBI::err,-1, "check error number");
+like ($DBI::errstr,qr/"Incorrect or missing password"/,"check error message");
 done_testing();

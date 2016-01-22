@@ -20,7 +20,7 @@ if ($@) {
     plan skip_all => 
         "Can't connect to database ERROR: $DBI::errstr. Can't continue test";
 }
-plan tests => 50; 
+plan tests => 49; 
 
 ok(defined $dbh, "Connected to database");
 
@@ -89,8 +89,6 @@ ok($ret_ref = $sth->fetchall_arrayref(),
 
 print "RETREF " . scalar @$ret_ref . "\n";
 ok(@{$ret_ref} == 4 , "\$ret_ref should contain four rows in result set");
-
-ok $dbh->selectrow_array("SELECT * FROM t1 WHERE id =1");
 
 ok($sth= $dbh->prepare("DROP TABLE IF EXISTS t1"),
   "Testing prepare of dropping table");

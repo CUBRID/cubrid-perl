@@ -12,9 +12,7 @@ my $dsn="dbi:cubrid:database=".$db.";host=".$host.";port=";
 #print "$dsn\n";
 my $user="";
 my $pass="";
-my $dbh=DBI->connect($dsn, $user,$pass,{PrintError=>1, AutoCommit=>0}); 
-#or die $DBI::errstr;
+my $dbh=DBI->connect($dsn, $user,$pass,{PrintError=>1, AutoCommit=>0}) or die $DBI::errstr;
 
-print "dbh:+++++++++++++++ "+$DBI::errstr;
-is($dbh, undef, "failed to connect to CUBRID CAS");
+#is($dbh, undef, "failed to connect to CUBRID CAS");
 done_testing();

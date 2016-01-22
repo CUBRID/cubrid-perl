@@ -8,9 +8,8 @@ use vars qw($db $port $hostname);
 
 $db="demodb";
 $port=33000;
-#$hostname="localhost";
-$hostname="test-db-server";
-my $user="dba";
+$hostname="localhost";
+my $user="public";
 my $pass="";
 
 my $dsn="dbi:cubrid:database=$db;host=$hostname;port=$port";
