@@ -29,7 +29,7 @@ ok($dbh->do("DROP TABLE IF EXISTS $table"), "Dropped table");
 
 # Non-primary key is there as a regression test for Bug #26786.
 ok($dbh->do("CREATE TABLE $table (a int, b varchar(20), c int,
-                                primary key (a,b))"),
+                                primary key (a,b), key (c))"),
    "Created table $table");
 
 my $sth= $dbh->primary_key_info(undef, undef, $table);
@@ -87,7 +87,5 @@ is($info->[0]->{FKTABLE_NAME}, "child");
 is($info->[0]->{FKCOLUMN_NAME}, "parent_id");
 
 ok($dbh->do(qq{DROP TABLE IF EXISTS child, parent}), "cleaning up");
+
 $dbh->disconnect();
-#test close with dbh
-#$sth= $dbh->foreign_key_info(undef, undef, undef, undef, undef, 'child');
-#$sth= $dbh->primary_key_info(undef, undef, $table);

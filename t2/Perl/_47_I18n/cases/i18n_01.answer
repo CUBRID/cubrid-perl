@@ -1,5 +1,0 @@
-####################case1########Number of field is 1
-name: chr(68 using iso88591)
-####################case2############Number of field is 1
-name: chr(68 using iso88591)|| chr(68-2 using iso88591)
-1..0

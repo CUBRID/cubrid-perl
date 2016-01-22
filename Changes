@@ -1,11 +1,5 @@
 Revision history for DBD::cubrid
 
-Changes in DBD-cubrid 8.4.1.0001    2012-3-26
-
-[BUG FIXES]
-1. APIS-101 - Data was inserted into demodb DB when url isn't correct
-2. APIS-104 - A lot of error information appear when just calling cubrid_lob_close once after twice calling cubrid_lob_get()
-
 Changes in DBD-cubrid 8.4.0.0002    2011-12-30
 
 After a figorous testing, this release modified many bugs on last version and serveral new featurees have been
