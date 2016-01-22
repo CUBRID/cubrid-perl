@@ -12,7 +12,7 @@ require 'lib.pl';
 
 use vars qw($test_dsn $test_user $test_passwd);
 
-$test_dsn .= ";mysql_server_prepare=1";
+$test_dsn.= ";mysql_server_prepare=1";
 my $dbh;
 eval {$dbh = DBI->connect($test_dsn, $test_user, $test_passwd,
   { RaiseError => 1, AutoCommit => 1})};
@@ -34,9 +34,5 @@ $dbh->{PrintWarn} = 1;
 ok defined($DBI::errstr);
 cmp_ok $DBI::errstr, 'ne', '';
 
-if ($DBI::errstr) {
-    my $errstr = $DBI::errstr;
-    $errstr =~ s/\n/  /g;
-    print "Excepted msg -- [$errstr]\n";
-}
+print "errstr $DBI::errstr\n" if $DBI::errstr;
 ok $dbh->disconnect();

@@ -42,8 +42,6 @@ ok ($sth = $dbh->prepare("SELECT * FROM $table WHERE id = 1"));
 
 ok ($sth->execute);
 
-$sth->blob_read(0,0,0);
-
 ok ($row = $sth->fetchrow_arrayref);
 
 ok defined($row), "row returned defined";
