@@ -24,7 +24,7 @@ if ($@) {
     plan skip_all => "ERROR: $DBI::errstr. Can't continue test";
 }
 else {
-    plan tests => 20;
+    plan tests => 19;
 }
 
 ok $dbh->do("DROP TABLE IF EXISTS $table"), "Drop table if exists $table";
@@ -77,4 +77,4 @@ ok $dbh->do("DROP TABLE $table"), "Drop table $table";
 
 ok $dbh->disconnect;
 #error
-$sth->cubrid_lob_export(1, "out2_error")
+#$sth->cubrid_lob_export(1, "out2_error")

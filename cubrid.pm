@@ -41,7 +41,7 @@ use strict;
 
     require_version DBI 1.61;
 
-    $VERSION = '10.0.0.0001';
+    $VERSION = '10.1.0.0001';
 
     bootstrap DBD::cubrid $VERSION;
 
@@ -57,20 +57,25 @@ use strict;
 
         $class .= "::dr";
 
+        DBD::cubrid::st->install_method ('cubrid_lob_get');
+        DBD::cubrid::st->install_method ('cubrid_lob_export');
+        DBD::cubrid::st->install_method ('cubrid_lob_import');
+        DBD::cubrid::st->install_method ('cubrid_lob_close');
+
         $drh = DBI::_new_drh ($class, {
                 'Name' => 'cubrid',
                 'Version' => $VERSION,
                 'Err'    => \$DBD::cubrid::err,
                 'Errstr' => \$DBD::cubrid::errstr,
                 'Attribution' => 'DBD::cubrid by Zhang Hui'
-            });
+            })
+        	or return undef;
 
-        DBD::cubrid::st->install_method ('cubrid_lob_get');
-        DBD::cubrid::st->install_method ('cubrid_lob_export');
-        DBD::cubrid::st->install_method ('cubrid_lob_import');
-        DBD::cubrid::st->install_method ('cubrid_lob_close');
+        return $drh;
+    }
 
-        $drh
+    sub CLONE {
+    	undef $drh;
     }
 }
 
