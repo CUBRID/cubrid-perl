@@ -47,6 +47,7 @@ my $CUBRID_INCLUDE;
 my $CUBRID_INCLUDE_BASE;
 my $CUBRID_INCLUDE_BROKER;
 my $CUBRID_INCLUDE_CCI;
+my $CUBRID_INCLUDE_COMPAT;
 my $CUBRID_LIB;
 my $CUBRID_LIB_EX;
 my $dbi_arch_dir;
@@ -66,6 +67,7 @@ if ($os =~ /^MSWin32$/i) {
     $CUBRID_INCLUDE_BASE = File::Spec->catpath("", $script_path,  "cci-src/src/base");
     $CUBRID_INCLUDE_CCI = File::Spec->catpath("", $script_path,  "cci-src/src/cci");
     $CUBRID_INCLUDE_BROKER = File::Spec->catpath("", $script_path,  "cci-src/src/broker");
+    $CUBRID_INCLUDE_COMPAT = File::Spec->catpath("", $script_path,  "cci-src/src/compat");
 
     my $arch_type = "";
     if ($Config{longsize} == 8) {
@@ -115,11 +117,11 @@ if ($os =~ /^MSWin32$/i) {
 	  $libs = "-lpthread -lstdc++";
 	  if($ARGV[0] eq "daily")
 	  {
-	  	$incflags ="-fprofile-arcs -ftest-coverage -I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BROKER -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
+	  	$incflags ="-fprofile-arcs -ftest-coverage -I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BROKER -I$CUBRID_INCLUDE_COMPAT -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
 	  }
 	  else
 	  {
-	  	$incflags ="-I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BROKER -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
+	  	$incflags ="-I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BROKER -I$CUBRID_INCLUDE_COMPAT -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
 	  }    
     $myextlib = $CUBRID_LIB . $sep ."libcascci" . '$(LIB_EXT)';
     $lddlflags = "";
