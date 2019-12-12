@@ -2,12 +2,12 @@
 DBD::cubrid - an CUBRID interface for Perl 5.
 =============================================
 ```
-   Copyright (c) 2011  Zhang Hui, China
+Copyright (c) 2011  Zhang Hui, China
 ```
 
 The driver installation is described in
 
-``
+```
   INSTALL.html
 ```
 
@@ -36,7 +36,7 @@ $ git clone git@github.com:CUBRID/cubrid-perl.git
 $ cd cubrid-perl
 $ perl Makefile.PL
 $ make
-... run CUBRID Database Service ...
+... run CUBRID Database Service if you want to run test cases ...
 $ make test
 $ make install
 ```
