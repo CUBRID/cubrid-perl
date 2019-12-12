@@ -27,6 +27,10 @@ ppm install DBD::cubrid
 perl -MCPAN -e shell
 install DBD::cubrid
 ```
+* The latest version of CUBRID Perl interface can be found at:
+```
+http://ftp.cubrid.org/CUBRID_Drivers/Perl_Driver/
+```
 
 Build from source
 -----------------
