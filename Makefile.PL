@@ -79,6 +79,7 @@ if ($os =~ /^MSWin32$/i) {
     system('./build_cci.sh',$arch_type);
     
     $CUBRID_LIB = File::Spec->catpath("", $script_path, "cci-src/cci/.libs");
+    $CUBRID_LIB_EX = File::Spec->catpath("", $script_path, "cci-src/external/openssl/lib");
     
 } else {
     $CUBRID_INCLUDE_CCI = $ENV{CUBRID} . $sep . "include";
@@ -114,7 +115,7 @@ if ($os =~ /^MSWin32$/i) {
 		    'LINKTYPE'      => 'dynamic',		    
 		);
 } else {
-	  $libs = "-lpthread -lstdc++";
+	  $libs = "-lpthread -lstdc++ -L$CUBRID_LIB_EX -lssl -lcrypto";
 	  if($ARGV[0] eq "daily")
 	  {
 	  	$incflags ="-fprofile-arcs -ftest-coverage -I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BROKER -I$CUBRID_INCLUDE_COMPAT -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
