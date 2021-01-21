@@ -1,10 +1,6 @@
 
 DBD::cubrid - an CUBRID interface for Perl 5.
 =============================================
-```
-Copyright (c) 2011  Zhang Hui, China
-```
-
 The driver installation is described in
 
 ```
