@@ -29,7 +29,7 @@ http://ftp.cubrid.org/CUBRID_Drivers/Perl_Driver/
 
 Build from source
 -----------------
-* GNU Developer Toolset 6 or higher is required (Linux)
+* GNU Developer Toolset 8 or higher is required (Linux)
 ```
 $ git clone git@github.com:CUBRID/cubrid-perl.git
 $ cd cubrid-perl
