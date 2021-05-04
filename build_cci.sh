@@ -7,8 +7,8 @@ if [ -f cci-src/cci/.libs/libcascci.a ];then
 fi
 
 cd cci-src
-touch configure.ac
 chmod +x configure
+touch configure.ac
 if [ "$1" = 'x86' ];then
   ./configure 
 else
