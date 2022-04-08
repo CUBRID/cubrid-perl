@@ -45,9 +45,7 @@ if ($os =~ /^MSWin32$/i) {
 
 my $CUBRID_INCLUDE;
 my $CUBRID_INCLUDE_BASE;
-my $CUBRID_INCLUDE_BROKER;
 my $CUBRID_INCLUDE_CCI;
-my $CUBRID_INCLUDE_COMPAT;
 my $CUBRID_LIB;
 my $CUBRID_LIB_EX;
 my $dbi_arch_dir;
@@ -66,19 +64,18 @@ if ($os =~ /^MSWin32$/i) {
 } elsif ($os =~ /^linux$/i) {
     $CUBRID_INCLUDE_BASE = File::Spec->catpath("", $script_path,  "cci-src/src/base");
     $CUBRID_INCLUDE_CCI = File::Spec->catpath("", $script_path,  "cci-src/src/cci");
-    $CUBRID_INCLUDE_BROKER = File::Spec->catpath("", $script_path,  "cci-src/src/broker");
-    $CUBRID_INCLUDE_COMPAT = File::Spec->catpath("", $script_path,  "cci-src/src/compat");
 
     my $arch_type = "";
     if ($Config{longsize} == 8) {
            $arch_type = "x64"; 
     } else {
-        $arch_type = "x86";
+        print "32bit Driver not supported. Exit.\n";
+        exit 1;
     }
     system('chmod +x build_cci.sh');
     system('./build_cci.sh',$arch_type);
     
-    $CUBRID_LIB = File::Spec->catpath("", $script_path, "cci-src/cci/.libs");
+    $CUBRID_LIB = File::Spec->catpath("", $script_path, "cci-src/build_x86_64_release/cci");
     $CUBRID_LIB_EX = File::Spec->catpath("", $script_path, "cci-src/external/openssl/lib");
     
 } else {
@@ -118,11 +115,11 @@ if ($os =~ /^MSWin32$/i) {
 	  $libs = "-lpthread -lstdc++ -L$CUBRID_LIB_EX -lssl -lcrypto";
 	  if($ARGV[0] eq "daily")
 	  {
-	  	$incflags ="-fprofile-arcs -ftest-coverage -I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BROKER -I$CUBRID_INCLUDE_COMPAT -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
+	  	$incflags ="-fprofile-arcs -ftest-coverage -I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
 	  }
 	  else
 	  {
-	  	$incflags ="-I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BROKER -I$CUBRID_INCLUDE_COMPAT -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
+	  	$incflags ="-I$CUBRID_INCLUDE_CCI -I$CUBRID_INCLUDE_BASE -I$dbi_arch_dir";
 	  }    
     $myextlib = $CUBRID_LIB . $sep ."libcascci" . '$(LIB_EXT)';
     $lddlflags = "";
