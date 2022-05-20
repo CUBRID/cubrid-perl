@@ -75,13 +75,13 @@ $sth= $dbh->foreign_key_info(undef, undef, 'parent', undef, undef, undef);
 
 is($info->[0]->{PKTABLE_NAME}, "parent");
 is($info->[0]->{PKCOLUMN_NAME}, "id");
-is($info->[0]->{FKTABLE_NAME}, "child");
+is($info->[0]->{FKTABLE_NAME}, "dba.child");
 is($info->[0]->{FKCOLUMN_NAME}, "parent_id");
 
 $sth= $dbh->foreign_key_info(undef, undef, undef, undef, undef, 'child');
 ($info)= $sth->fetchall_arrayref({});
 
-is($info->[0]->{PKTABLE_NAME}, "parent");
+is($info->[0]->{PKTABLE_NAME}, "dba.parent");
 is($info->[0]->{PKCOLUMN_NAME}, "id");
 is($info->[0]->{FKTABLE_NAME}, "child");
 is($info->[0]->{FKCOLUMN_NAME}, "parent_id");
