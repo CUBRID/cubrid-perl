@@ -37,11 +37,11 @@ ok($sth, "Got primary key info");
 
 my $key_info= $sth->fetchall_arrayref({});
 
-is($key_info->[0]->{TABLE_NAME}, "test_cubrid");
+is($key_info->[0]->{TABLE_NAME}, "public.test_cubrid");
 is($key_info->[0]->{COLUMN_NAME}, "a");
 is($key_info->[0]->{KEY_SEQ}, 1);
 is($key_info->[0]->{PK_NAME}, "pk_test_cubrid_a_b");
-is($key_info->[1]->{TABLE_NAME}, "test_cubrid");
+is($key_info->[1]->{TABLE_NAME}, "public.test_cubrid");
 is($key_info->[1]->{COLUMN_NAME}, "b");
 is($key_info->[1]->{KEY_SEQ}, 2);
 is($key_info->[1]->{PK_NAME}, "pk_test_cubrid_a_b");
@@ -75,13 +75,13 @@ $sth= $dbh->foreign_key_info(undef, undef, 'parent', undef, undef, undef);
 
 is($info->[0]->{PKTABLE_NAME}, "parent");
 is($info->[0]->{PKCOLUMN_NAME}, "id");
-is($info->[0]->{FKTABLE_NAME}, "dba.child");
+is($info->[0]->{FKTABLE_NAME}, "public.child");
 is($info->[0]->{FKCOLUMN_NAME}, "parent_id");
 
 $sth= $dbh->foreign_key_info(undef, undef, undef, undef, undef, 'child');
 ($info)= $sth->fetchall_arrayref({});
 
-is($info->[0]->{PKTABLE_NAME}, "dba.parent");
+is($info->[0]->{PKTABLE_NAME}, "public.parent");
 is($info->[0]->{PKCOLUMN_NAME}, "id");
 is($info->[0]->{FKTABLE_NAME}, "child");
 is($info->[0]->{FKCOLUMN_NAME}, "parent_id");
