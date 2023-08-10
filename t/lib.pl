@@ -31,7 +31,7 @@ $database = 'demodb';
 $hostname = 'localhost';
 $port = 33000;
 $test_dsn = "DBI:cubrid:database=$database;host=$hostname;port=$port";
-$test_user = 'dba';
+$test_user = 'public';
 $test_passwd = '';
 
 $::COL_NULLABLE = 1;
